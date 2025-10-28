@@ -2,10 +2,14 @@
 
 import React, { useState } from 'react';
 import { MapPin, Clock, Mail, Phone, User, MessageCircle, Send } from 'lucide-react';
-import Image from 'next/image';
 import FeatureCard from '@/components/partials/FeatureCard';
+import { InformationTransformed } from '../core/models/contact-page.model';
 
-const ContactInformationSection: React.FC = () => {
+interface ContactInformationSectionProps {
+  information: InformationTransformed[];
+}
+
+const ContactInformationSection: React.FC<ContactInformationSectionProps> = ({ information }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -15,28 +19,23 @@ const ContactInformationSection: React.FC = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const contactInfo = [
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title: "Alamat",
-      description: "Jalan Raya Pondok Gede Nomor 18 E, Lubang Buaya, Kec. Cipayung, DKI Jakarta"
-    },
-    {
-      icon: <Clock className="w-6 h-6" />,
-      title: "Jam Operasional",
-      description: "Senin - Jumat: 09.00 WIB - 17.00 WIB\nWeekend: 12.00 WIB - 15.00 WIB"
-    },
-    {
-      icon: <Mail className="w-6 h-6" />,
-      title: "Email",
-      description: "admin@gasstrip.com"
-    },
-    {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Telepon",
-      description: "+62 877-8574-0144"
-    }
-  ];
+  // Get the first information item (should be "Contact Information")
+  const contactInfoData = information.length > 0 ? information[0] : null;
+  
+  // Map detail information data to icons
+  const getIconForTitle = (title: string) => {
+    if (title.includes('Alamat')) return <MapPin className="w-6 h-6" />;
+    if (title.includes('Jam')) return <Clock className="w-6 h-6" />;
+    if (title.includes('Email')) return <Mail className="w-6 h-6" />;
+    if (title.includes('Telepon')) return <Phone className="w-6 h-6" />;
+    return <MapPin className="w-6 h-6" />; // Default icon
+  };
+
+  const contactInfo = contactInfoData?.detailInformation.map(item => ({
+    icon: getIconForTitle(item.title),
+    title: item.title,
+    description: item.description
+  })) || [];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -49,19 +48,26 @@ const ContactInformationSection: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    console.log('Form submitted:', formData);
-    setIsSubmitting(false);
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
+    try {
+      // TODO: Implement real API call to send contact form
+      console.log('Form submitted:', formData);
+      
+      // Show success message
+      alert('Pesan berhasil dikirim! Tim kami akan segera merespons.');
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -71,10 +77,10 @@ const ContactInformationSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-20">
           <h2 className="text-5xl md:text-6xl font-bold text-blue-900 mb-6 leading-tight">
-            Informasi Kontak
+            {contactInfoData?.title || ''}
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Tim profesional kami siap membantu mewujudkan perjalanan impian Anda dengan layanan terbaik dan pengalaman tak terlupakan.
+            {contactInfoData?.description || ''}
           </p>
         </div>
 
@@ -83,15 +89,14 @@ const ContactInformationSection: React.FC = () => {
           <div className="space-y-6">
             {/* Map Section */}
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 overflow-hidden">
-              <div className="relative h-80">
-                <Image
-                  src="/maps.png"
-                  alt="Lokasi Gasstrip Travel"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-
+              <div className="relative h-80 flex items-center justify-center bg-gray-100">
+                <div className="text-center p-8">
+                  <div className="text-gray-500 text-xl mb-2">🗺️</div>
+                  <div className="text-gray-600 font-semibold mb-2">Map Data Required</div>
+                  <p className="text-gray-500 text-sm">
+                    Map image is not available from Strapi API. Please add map data to Contact page in Strapi.
+                  </p>
+                </div>
               </div>
             </div>
 

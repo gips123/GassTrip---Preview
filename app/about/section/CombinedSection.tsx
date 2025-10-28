@@ -1,25 +1,27 @@
 import React from 'react';
 import { MapPin, Users, Star } from 'lucide-react';
 import FeatureCard from '@/components/partials/FeatureCard';
+import { AboutFeaturedTransformed, AboutLogoTransformed } from '../core/models/about-page.model';
 
-const CombinedSection: React.FC = () => {
-  const features = [
-    {
-      icon: <MapPin className="w-8 h-8" />,
-      title: "Destinasi yang Berkesan",
-      description: "Setiap sudut dunia menyimpan cerita, dan kami hadir untuk membawa Anda ke tempat-tempat yang tak hanya indah, tetapi juga meninggalkan kesan mendalam"
-    },
-    {
-      icon: <Users className="w-8 h-8" />,
-      title: "Tim yang Luar Biasa",
-      description: "Bersama tim kami, Anda tidak hanya bepergian, tetapi juga ditemani oleh orang-orang yang peduli akan kenyamanan dan kepuasan Anda."
-    },
-    {
-      icon: <Star className="w-8 h-8" />,
-      title: "Harga Terjangkau Sekali",
-      description: "Nikmati pengalaman luar biasa dengan harga yang terjangkau - karena bersama kami, liburan hemat tetap penuh kesan"
-    }
-  ];
+interface CombinedSectionProps {
+  featured: AboutFeaturedTransformed[];
+  logo: AboutLogoTransformed;
+}
+
+const CombinedSection: React.FC<CombinedSectionProps> = ({ featured, logo }) => {
+  // Map featured data to icons
+  const getIconForTitle = (title: string) => {
+    if (title.includes('Destinasi')) return <MapPin className="w-8 h-8" />;
+    if (title.includes('Tim')) return <Users className="w-8 h-8" />;
+    if (title.includes('Harga')) return <Star className="w-8 h-8" />;
+    return <Star className="w-8 h-8" />; // Default icon
+  };
+
+  const features = featured.map(item => ({
+    icon: getIconForTitle(item.title),
+    title: item.title,
+    description: item.description
+  }));
 
   return (
     <section className="relative py-20 bg-gradient-to-br from-gray-50 to-white">
@@ -27,8 +29,8 @@ const CombinedSection: React.FC = () => {
         {/* Logo Section */}
         <div className="flex justify-center">
           <img
-            src="/gasstrip-logo.png"
-            alt="Gasstrip Logo"
+            src={logo.url}
+            alt={logo.alt}
             className="w-100 h-100 object-contain"
           />
         </div>
