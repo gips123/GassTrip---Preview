@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { AboutHeroTransformed, AboutLogoTransformed } from '../core/models/about-page.model';
+import { AboutHeroTransformed, AboutLogoTransformed } from '../core/about-page.model';
 
 interface AboutHeroSectionProps {
   hero: AboutHeroTransformed;

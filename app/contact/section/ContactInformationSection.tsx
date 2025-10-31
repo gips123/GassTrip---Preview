@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { MapPin, Clock, Mail, Phone, User, MessageCircle, Send } from 'lucide-react';
 import FeatureCard from '@/components/partials/FeatureCard';
-import { InformationTransformed } from '../core/models/contact-page.model';
+import { InformationTransformed } from '../core/contact-page.model';
 
 interface ContactInformationSectionProps {
   information: InformationTransformed[];
@@ -49,10 +49,8 @@ const ContactInformationSection: React.FC<ContactInformationSectionProps> = ({ i
     setIsSubmitting(true);
     
     try {
-      // TODO: Implement real API call to send contact form
-      console.log('Form submitted:', formData);
       
-      // Show success message
+      
       alert('Pesan berhasil dikirim! Tim kami akan segera merespons.');
       
       // Reset form
@@ -63,7 +61,6 @@ const ContactInformationSection: React.FC<ContactInformationSectionProps> = ({ i
         message: ''
       });
     } catch (error) {
-      console.error('Error submitting form:', error);
       alert('Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.');
     } finally {
       setIsSubmitting(false);

@@ -27,8 +27,6 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience }) => 
                   src={destination.url}
                   alt={destination.alt}
                   className="w-full h-full object-cover"
-                  onLoad={() => console.log(`Experience image loaded: ${destination.alt}`)}
-                  onError={() => console.error(`Failed to load experience image: ${destination.url}`)}
                 />
                 
                 {/* Overlay */}

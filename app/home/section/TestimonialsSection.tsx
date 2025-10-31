@@ -57,8 +57,6 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ testimonials 
                 src={testimonials.image.url}
                 alt={testimonials.image.alt}
                 className="w-full h-96 lg:h-[500px] object-cover"
-                onLoad={() => console.log('Testimonials image loaded successfully')}
-                onError={() => console.error('Failed to load testimonials image')}
               />
               
               {/* Overlay Gradient */}

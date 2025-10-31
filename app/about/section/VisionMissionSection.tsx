@@ -1,5 +1,5 @@
 import React from 'react';
-import { AboutVisionMissionTransformed } from '../core/models/about-page.model';
+import { AboutVisionMissionTransformed } from '../core/about-page.model';
 import FeatureCard from '@/components/partials/FeatureCard';
 import { Users, Star, Handshake, Heart, Target, Shield } from 'lucide-react';
 

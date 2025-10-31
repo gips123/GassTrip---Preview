@@ -1,7 +1,7 @@
 import React from 'react';
 import { MapPin, Users, Star } from 'lucide-react';
 import FeatureCard from '@/components/partials/FeatureCard';
-import { AboutFeaturedTransformed, AboutLogoTransformed } from '../core/models/about-page.model';
+import { AboutFeaturedTransformed, AboutLogoTransformed } from '../core/about-page.model';
 
 interface CombinedSectionProps {
   featured: AboutFeaturedTransformed[];

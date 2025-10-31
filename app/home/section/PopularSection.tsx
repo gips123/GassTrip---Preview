@@ -69,23 +69,17 @@ const PopularSection: React.FC<PopularSectionProps> = ({ featured }) => {
               onClick={() => handleDestinationClick(destination.id)}
               className="relative group cursor-pointer overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2"
             >
-              {/* Image */}
               <div className="relative h-80 w-full">
                 <img
                   src={destination.image}
                   alt={destination.alt}
                   className="w-full h-full object-cover"
-                  onLoad={() => console.log(`Popular destination image loaded: ${destination.name}`)}
-                  onError={() => console.error(`Failed to load image: ${destination.image}`)}
                 />
                 
-                {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:from-black/80 transition-all duration-500" />
                 
-                {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                {/* Content Overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 transform group-hover:translate-y-0 translate-y-2 transition-transform duration-500">
                   <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-orange-200 transition-colors duration-300">
                     {destination.name}

@@ -142,7 +142,7 @@ const BookingFormModal: React.FC<BookingFormModalProps> = ({
       // Pass form data to next step
       onNext(formData);
     } catch (error) {
-      console.error('Error submitting form:', error);
+      
     } finally {
       setIsSubmitting(false);
     }

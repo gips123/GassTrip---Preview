@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ContactHeroTransformed } from '../core/models/contact-page.model';
+import { ContactHeroTransformed } from '../core/contact-page.model';
 
 interface ContactHeroSectionProps {
   hero: ContactHeroTransformed;

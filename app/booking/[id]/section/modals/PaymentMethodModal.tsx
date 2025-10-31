@@ -153,7 +153,7 @@ const PaymentMethodModal: React.FC<PaymentMethodModalProps> = ({
         onConfirm(paymentData);
       }
     } catch (error) {
-      console.error('Error processing payment:', error);
+      
     } finally {
       setIsProcessing(false);
     }

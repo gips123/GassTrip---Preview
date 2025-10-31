@@ -1,5 +1,3 @@
-// Global External API Client
-
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
 class ExternalClient {
@@ -18,26 +16,20 @@ class ExternalClient {
       },
     });
     
-    // Request interceptor
     this.client.interceptors.request.use(
       (config) => {
-        console.log(`[External API] ${config.method?.toUpperCase()} ${config.url}`);
         return config;
       },
       (error) => {
-        console.error('[External API] Request Error:', error);
         return Promise.reject(error);
       }
     );
     
-    // Response interceptor
     this.client.interceptors.response.use(
       (response) => {
-        console.log(`[External API] Response: ${response.status} ${response.config.url}`);
         return response;
       },
       (error) => {
-        console.error('[External API] Response Error:', error.response?.status, error.message);
         return Promise.reject(error);
       }
     );
@@ -51,7 +43,6 @@ class ExternalClient {
       });
       return response.data;
     } catch (error) {
-      console.error(`[External API] GET ${endpoint} failed:`, error);
       throw error;
     }
   }
@@ -61,7 +52,6 @@ class ExternalClient {
       const response = await this.client.post(endpoint, data, config);
       return response.data;
     } catch (error) {
-      console.error(`[External API] POST ${endpoint} failed:`, error);
       throw error;
     }
   }
@@ -71,7 +61,6 @@ class ExternalClient {
       const response = await this.client.put(endpoint, data, config);
       return response.data;
     } catch (error) {
-      console.error(`[External API] PUT ${endpoint} failed:`, error);
       throw error;
     }
   }
@@ -81,11 +70,9 @@ class ExternalClient {
       const response = await this.client.delete(endpoint, config);
       return response.data;
     } catch (error) {
-      console.error(`[External API] DELETE ${endpoint} failed:`, error);
       throw error;
     }
   }
 }
 
-// Singleton instance
 export const externalClient = new ExternalClient();
