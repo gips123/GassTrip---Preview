@@ -111,7 +111,7 @@ const PackageDetailHero: React.FC<PackageDetailHeroProps> = ({ packageId }) => {
       </div>
       
       {/* Content Overlay */}
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-8 pb-40">
+      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-8 pb-30">
         <div className="max-w-7xl mx-auto">
           <div className="text-white">
             {/* Location */}

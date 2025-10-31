@@ -115,7 +115,7 @@ const Footer: React.FC = () => {
               <div className="flex items-center">
                 <Mail className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
                 <a href="mailto:info@.com" className="text-gray-300 hover:text-white transition-colors">
-                  admin@gasstrip.id
+                  admin@gasstrip.com
                 </a>
               </div>
               
@@ -152,7 +152,7 @@ const Footer: React.FC = () => {
             </div>
             
             <div className="text-sm text-gray-400">
-              <p>© 2024 GassTrip. Semua hak dilindungi.</p>
+              <p>© 2025 GassTrip. Semua hak dilindungi.</p>
             </div>
           </div>
         </div>
