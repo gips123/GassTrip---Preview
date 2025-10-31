@@ -18,7 +18,7 @@ export interface BookingFormData {
 export interface PaymentMethod {
   id: string;
   name: string;
-  type: 'credit_card' | 'bank_transfer' | 'ewallet' | 'virtual_account';
+  type: 'credit_card' | 'bank_transfer' | 'ewallet' | 'virtual_account' | 'qris';
   icon: React.ReactNode;
   description: string;
   processingFee: number;
