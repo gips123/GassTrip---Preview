@@ -1,4 +1,5 @@
 import { StrapiService } from '@/lib/core/api';
+import { transformImageUrl } from '@/lib/utils/image-url';
 import { 
   ContactPageData, 
   ContactPageTransformed, 
@@ -54,8 +55,7 @@ export class ContactPageService {
     let backgroundImage = undefined;
     if (hero.Background && hero.Background.length > 0) {
       const background = hero.Background[0];
-      const baseUrl = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
-      const imageUrl = background.url.startsWith('http') ? background.url : `${baseUrl}${background.url}`;
+      const imageUrl = transformImageUrl(background.url);
       
       backgroundImage = {
         url: imageUrl,
@@ -91,8 +91,7 @@ export class ContactPageService {
   private transformBackgroundFromHero(hero: any): { url: string; alt: string } {
     if (hero.Background && hero.Background.length > 0) {
       const background = hero.Background[0];
-      const baseUrl = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
-      const imageUrl = background.url.startsWith('http') ? background.url : `${baseUrl}${background.url}`;
+      const imageUrl = transformImageUrl(background.url);
       
       return {
         url: imageUrl,

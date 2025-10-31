@@ -1,4 +1,5 @@
 import { StrapiService } from '@/lib/core/api';
+import { transformImageUrl } from '@/lib/utils/image-url';
 import { 
   PackagePageData, 
   PackagePageTransformed, 
@@ -51,16 +52,14 @@ export class PackagePageService {
   private transformHero(hero: any): PackageHeroTransformed {
     let backgroundImages: PackageImageTransformed[] = [];
     if (hero.Background && hero.Background.length > 0) {
-      const baseUrl = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
-      
       backgroundImages = hero.Background.map((background: any) => ({
-        url: background.url.startsWith('http') ? background.url : `${baseUrl}${background.url}`,
+        url: transformImageUrl(background.url),
         alt: background.alternativeText || background.name || 'Background image',
         formats: {
-          thumbnail: background.formats.thumbnail.url.startsWith('http') ? background.formats.thumbnail.url : `${baseUrl}${background.formats.thumbnail.url}`,
-          medium: background.formats.medium.url.startsWith('http') ? background.formats.medium.url : `${baseUrl}${background.formats.medium.url}`,
-          small: background.formats.small.url.startsWith('http') ? background.formats.small.url : `${baseUrl}${background.formats.small.url}`,
-          large: background.formats.large.url.startsWith('http') ? background.formats.large.url : `${baseUrl}${background.formats.large.url}`,
+          thumbnail: transformImageUrl(background.formats.thumbnail.url),
+          medium: transformImageUrl(background.formats.medium.url),
+          small: transformImageUrl(background.formats.small.url),
+          large: transformImageUrl(background.formats.large.url),
         }
       }));
     }
@@ -83,7 +82,7 @@ export class PackagePageService {
         description: 'Jelajahi destinasi menakjubkan dengan paket wisata pilihan kami. Nikmati pengalaman perjalanan yang tak terlupakan dengan harga terbaik dan layanan berkualitas.',
         backgroundImages: [
           {
-            url: '/pantai.jpg',
+            url: '/.jpg',
             alt: 'Tropical Island Paradise',
             formats: {
               thumbnail: '/pantai.jpg',

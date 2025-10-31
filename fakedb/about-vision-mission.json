@@ -1,0 +1,37 @@
+{
+  "data": {
+    "id": 28,
+    "documentId": "nnp2y9dz34uxeaj6r6yruf7i",
+    "createdAt": "2025-10-27T22:02:28.119Z",
+    "updatedAt": "2025-10-30T11:13:04.439Z",
+    "publishedAt": "2025-10-30T11:13:04.453Z",
+    "VissionMission": {
+      "id": 25,
+      "Title": "Visi & Misi",
+      "Vission": "Menjadi perusahaan tour & travel terdepan, terpercaya, dan unggul di Indonesia yang berkomitmen memberikan pengalaman perjalanan yang berkesan, aman, dan memuaskan bagi setiap pelanggan, sekaligus berkontribusi positif pada pariwisata berkelanjutan.\n",
+      "Mission": [
+        {
+          "id": 302,
+          "Title": "Pelayanan Prima",
+          "Description": "Memberikan pelayanan yang profesional, ramah, cepat, dan responsif mulai dari perencanaan, selama perjalanan, hingga purna-wisata untuk memastikan kenyamanan dan kepuasan pelanggan. .\n"
+        },
+        {
+          "id": 303,
+          "Title": "Kualitas dan Inovasi Produk",
+          "Description": "Menyediakan beragam paket perjalanan domestik dan internasional yang berkualitas, menarik, dan fleksibel, serta terus berinovasi dalam menciptakan rute dan layanan baru."
+        },
+        {
+          "id": 304,
+          "Title": "Kemitraan Strategis",
+          "Description": "Membangun dan menjaga hubungan baik dengan mitra bisnis (maskapai, hotel, transportasi, pengelola destinasi) untuk memastikan harga yang kompetitif dan layanan yang optimal. .\n"
+        },
+        {
+          "id": 305,
+          "Title": "Tanggung Jawab Sosial",
+          "Description": "Berperan aktif dalam mendukung pariwisata berkelanjutan dengan menghargai budaya lokal, menjaga kelestarian lingkungan, dan memberikan manfaat bagi masyarakat di destinasi wisata.\n"
+        }
+      ]
+    }
+  },
+  "meta": {}
+}

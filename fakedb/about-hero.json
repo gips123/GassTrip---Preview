@@ -1,0 +1,87 @@
+{
+  "data": {
+    "id": 28,
+    "documentId": "nnp2y9dz34uxeaj6r6yruf7i",
+    "createdAt": "2025-10-27T22:02:28.119Z",
+    "updatedAt": "2025-10-30T11:13:04.439Z",
+    "publishedAt": "2025-10-30T11:13:04.453Z",
+    "AboutHero": {
+      "id": 72,
+      "Title": "Tentang Kami",
+      "Description": "Bersama Kami, jelajahi keindahan alam, budaya, dan pesona destinasi pilihan, dengan tenang dan tanpa khawatir. Mari ciptakan momen-momen berharga dalam setiap langkah perjalanan Anda.",
+      "Background": [
+        {
+          "id": 3,
+          "documentId": "m59qka1oa2f348kx7byop8n1",
+          "name": "bromo.jpg",
+          "alternativeText": null,
+          "caption": null,
+          "width": 5556,
+          "height": 3704,
+          "formats": {
+            "thumbnail": {
+              "name": "thumbnail_bromo.jpg",
+              "hash": "thumbnail_bromo_2eeb397d23",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "path": null,
+              "width": 234,
+              "height": 156,
+              "size": 6.99,
+              "sizeInBytes": 6994,
+              "url": "/uploads/thumbnail_bromo_2eeb397d23.jpg"
+            },
+            "medium": {
+              "name": "medium_bromo.jpg",
+              "hash": "medium_bromo_2eeb397d23",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "path": null,
+              "width": 750,
+              "height": 500,
+              "size": 54.36,
+              "sizeInBytes": 54359,
+              "url": "/uploads/medium_bromo_2eeb397d23.jpg"
+            },
+            "large": {
+              "name": "large_bromo.jpg",
+              "hash": "large_bromo_2eeb397d23",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "path": null,
+              "width": 1000,
+              "height": 667,
+              "size": 90.05,
+              "sizeInBytes": 90050,
+              "url": "/uploads/large_bromo_2eeb397d23.jpg"
+            },
+            "small": {
+              "name": "small_bromo.jpg",
+              "hash": "small_bromo_2eeb397d23",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "path": null,
+              "width": 500,
+              "height": 334,
+              "size": 25.9,
+              "sizeInBytes": 25895,
+              "url": "/uploads/small_bromo_2eeb397d23.jpg"
+            }
+          },
+          "hash": "bromo_2eeb397d23",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "size": 3035.24,
+          "url": "/uploads/bromo_2eeb397d23.jpg",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2025-10-27T22:00:58.613Z",
+          "updatedAt": "2025-10-27T22:00:58.613Z",
+          "publishedAt": "2025-10-27T22:00:58.613Z"
+        }
+      ]
+    }
+  },
+  "meta": {}
+}

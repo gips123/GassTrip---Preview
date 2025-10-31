@@ -1,6 +1,7 @@
 // Service untuk About page - Strapi API
 
 import { StrapiService } from '@/lib/core/api';
+import { transformImageUrl } from '@/lib/utils/image-url';
 import { 
   AboutPageData, 
   AboutPageTransformed, 
@@ -59,8 +60,7 @@ export class AboutPageService {
     let backgroundImage = undefined;
     if (hero.Background && hero.Background.length > 0) {
       const background = hero.Background[0];
-      const baseUrl = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
-      const imageUrl = background.url.startsWith('http') ? background.url : `${baseUrl}${background.url}`;
+      const imageUrl = transformImageUrl(background.url);
       
       backgroundImage = {
         url: imageUrl,
@@ -77,19 +77,15 @@ export class AboutPageService {
   }
   
   private transformLogo(logo: any): any {
-    // Add Strapi base URL prefix
-    const baseUrl = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
-    const imageUrl = logo.url.startsWith('http') ? logo.url : `${baseUrl}${logo.url}`;
-    
     return {
       id: logo.id,
-      url: imageUrl,
+      url: transformImageUrl(logo.url),
       alt: logo.alternativeText || logo.name,
       formats: {
-        thumbnail: logo.formats.thumbnail.url.startsWith('http') ? logo.formats.thumbnail.url : `${baseUrl}${logo.formats.thumbnail.url}`,
-        medium: logo.formats.medium.url.startsWith('http') ? logo.formats.medium.url : `${baseUrl}${logo.formats.medium.url}`,
-        small: logo.formats.small.url.startsWith('http') ? logo.formats.small.url : `${baseUrl}${logo.formats.small.url}`,
-        large: logo.formats.large.url.startsWith('http') ? logo.formats.large.url : `${baseUrl}${logo.formats.large.url}`
+        thumbnail: transformImageUrl(logo.formats.thumbnail.url),
+        medium: transformImageUrl(logo.formats.medium.url),
+        small: transformImageUrl(logo.formats.small.url),
+        large: transformImageUrl(logo.formats.large.url)
       }
     };
   }
@@ -119,8 +115,7 @@ export class AboutPageService {
     // Use background image from AboutHero.Background
     if (hero.Background && hero.Background.length > 0) {
       const background = hero.Background[0];
-      const baseUrl = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
-      const imageUrl = background.url.startsWith('http') ? background.url : `${baseUrl}${background.url}`;
+      const imageUrl = transformImageUrl(background.url);
       
       return {
         url: imageUrl,

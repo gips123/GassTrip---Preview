@@ -1,0 +1,87 @@
+{
+  "data": {
+    "id": 14,
+    "documentId": "vdmqt1ri57c0jabuqo7nc63p",
+    "createdAt": "2025-10-28T00:45:17.110Z",
+    "updatedAt": "2025-10-29T10:12:00.296Z",
+    "publishedAt": "2025-10-29T10:12:00.305Z",
+    "ContactHero": {
+      "id": 70,
+      "Title": "Hubungi Kami",
+      "Description": "Kami selalu siap membantu Anda!\nJika Anda memiliki pertanyaan, ingin konsultasi paket wisata, atau membutuhkan bantuan jangan ragu untuk menghubungi tim kami.",
+      "Background": [
+        {
+          "id": 1,
+          "documentId": "t7jvyzq5fjjsa4w2aso1z8sz",
+          "name": "pantai.jpg",
+          "alternativeText": null,
+          "caption": null,
+          "width": 3472,
+          "height": 4624,
+          "formats": {
+            "thumbnail": {
+              "name": "thumbnail_pantai.jpg",
+              "hash": "thumbnail_pantai_183bec45f3",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "path": null,
+              "width": 117,
+              "height": 156,
+              "size": 3.59,
+              "sizeInBytes": 3594,
+              "url": "/uploads/thumbnail_pantai_183bec45f3.jpg"
+            },
+            "medium": {
+              "name": "medium_pantai.jpg",
+              "hash": "medium_pantai_183bec45f3",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "path": null,
+              "width": 563,
+              "height": 750,
+              "size": 54.83,
+              "sizeInBytes": 54828,
+              "url": "/uploads/medium_pantai_183bec45f3.jpg"
+            },
+            "small": {
+              "name": "small_pantai.jpg",
+              "hash": "small_pantai_183bec45f3",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "path": null,
+              "width": 375,
+              "height": 500,
+              "size": 25.62,
+              "sizeInBytes": 25623,
+              "url": "/uploads/small_pantai_183bec45f3.jpg"
+            },
+            "large": {
+              "name": "large_pantai.jpg",
+              "hash": "large_pantai_183bec45f3",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "path": null,
+              "width": 751,
+              "height": 1000,
+              "size": 95.66,
+              "sizeInBytes": 95662,
+              "url": "/uploads/large_pantai_183bec45f3.jpg"
+            }
+          },
+          "hash": "pantai_183bec45f3",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "size": 1438.77,
+          "url": "/uploads/pantai_183bec45f3.jpg",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2025-10-27T22:00:58.436Z",
+          "updatedAt": "2025-10-27T22:00:58.436Z",
+          "publishedAt": "2025-10-27T22:00:58.437Z"
+        }
+      ]
+    }
+  },
+  "meta": {}
+}

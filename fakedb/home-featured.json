@@ -1,0 +1,27 @@
+{
+  "data": {
+    "id": 22,
+    "documentId": "yslbb7ht67gpeberxm2xjwqc",
+    "createdAt": "2025-10-28T07:27:12.018Z",
+    "updatedAt": "2025-10-29T02:01:13.608Z",
+    "publishedAt": "2025-10-29T02:01:13.619Z",
+    "HomeFeatured": [
+      {
+        "id": 285,
+        "Title": "Pilih Paket Wisata",
+        "Description": "Pilihan lengkap untuk menjelajahi berbagai destinasi Anda"
+      },
+      {
+        "id": 286,
+        "Title": "Hubungi Kami",
+        "Description": "Hubungi kami sekarang untuk pemesanan dan informasi lengkap"
+      },
+      {
+        "id": 287,
+        "Title": "Siap Jelajah Liburanmu",
+        "Description": "Saatnya menikmati liburan yang tak terlupakan. Buat setiap momen berharga"
+      }
+    ]
+  },
+  "meta": {}
+}

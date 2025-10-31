@@ -1,0 +1,90 @@
+{
+  "data": {
+    "id": 28,
+    "documentId": "nnp2y9dz34uxeaj6r6yruf7i",
+    "createdAt": "2025-10-27T22:02:28.119Z",
+    "updatedAt": "2025-10-30T11:13:04.439Z",
+    "publishedAt": "2025-10-30T11:13:04.453Z",
+    "Logo": {
+      "id": 4,
+      "documentId": "le9dpkhrd251faopue7qz9uy",
+      "name": "gasstrip-logo.png",
+      "alternativeText": null,
+      "caption": null,
+      "width": 4000,
+      "height": 4000,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_gasstrip-logo.png",
+          "hash": "thumbnail_gasstrip_logo_b08554eed4",
+          "ext": ".png",
+          "mime": "image/png",
+          "path": null,
+          "width": 156,
+          "height": 156,
+          "size": 10.8,
+          "sizeInBytes": 10804,
+          "url": "/uploads/thumbnail_gasstrip_logo_b08554eed4.png"
+        },
+        "medium": {
+          "name": "medium_gasstrip-logo.png",
+          "hash": "medium_gasstrip_logo_b08554eed4",
+          "ext": ".png",
+          "mime": "image/png",
+          "path": null,
+          "width": 750,
+          "height": 750,
+          "size": 57.35,
+          "sizeInBytes": 57350,
+          "url": "/uploads/medium_gasstrip_logo_b08554eed4.png"
+        },
+        "small": {
+          "name": "small_gasstrip-logo.png",
+          "hash": "small_gasstrip_logo_b08554eed4",
+          "ext": ".png",
+          "mime": "image/png",
+          "path": null,
+          "width": 500,
+          "height": 500,
+          "size": 35.71,
+          "sizeInBytes": 35707,
+          "url": "/uploads/small_gasstrip_logo_b08554eed4.png"
+        },
+        "large": {
+          "name": "large_gasstrip-logo.png",
+          "hash": "large_gasstrip_logo_b08554eed4",
+          "ext": ".png",
+          "mime": "image/png",
+          "path": null,
+          "width": 1000,
+          "height": 1000,
+          "size": 70.47,
+          "sizeInBytes": 70475,
+          "url": "/uploads/large_gasstrip_logo_b08554eed4.png"
+        }
+      },
+      "hash": "gasstrip_logo_b08554eed4",
+      "ext": ".png",
+      "mime": "image/png",
+      "size": 72.5,
+      "url": "/uploads/gasstrip_logo_b08554eed4.png",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2025-10-27T22:00:58.967Z",
+      "updatedAt": "2025-10-27T22:00:58.967Z",
+      "publishedAt": "2025-10-27T22:00:58.968Z",
+      "related": [
+        {
+          "__type": "api::about.about",
+          "id": 28,
+          "documentId": "nnp2y9dz34uxeaj6r6yruf7i",
+          "createdAt": "2025-10-27T22:02:28.119Z",
+          "updatedAt": "2025-10-30T11:13:04.439Z",
+          "publishedAt": "2025-10-30T11:13:04.453Z"
+        }
+      ]
+    }
+  },
+  "meta": {}
+}

@@ -1,0 +1,157 @@
+{
+  "data": {
+    "id": 22,
+    "documentId": "yslbb7ht67gpeberxm2xjwqc",
+    "createdAt": "2025-10-28T07:27:12.018Z",
+    "updatedAt": "2025-10-29T02:01:13.608Z",
+    "publishedAt": "2025-10-29T02:01:13.619Z",
+    "Testimonials": {
+      "id": 22,
+      "Title": "Telah Melayani 10.000+ Wisatawan",
+      "Description": "Menggunakan GASS TRIP merupakan pilihan cerdas untuk kamu yang ingin liburan tanpa repot. Dengan pengalaman, jaringan, dan keahlian yang mereka miliki, agen wisata akan memastikan liburanmu berjalan lancar, nyaman, dan penuh kenangan indah.",
+      "LogoName": "GASS TRIP",
+      "LogoText": "Petualangan seru menantimu",
+      "Logo": {
+        "id": 4,
+        "documentId": "le9dpkhrd251faopue7qz9uy",
+        "name": "gasstrip-logo.png",
+        "alternativeText": null,
+        "caption": null,
+        "width": 4000,
+        "height": 4000,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_gasstrip-logo.png",
+            "hash": "thumbnail_gasstrip_logo_b08554eed4",
+            "ext": ".png",
+            "mime": "image/png",
+            "path": null,
+            "width": 156,
+            "height": 156,
+            "size": 10.8,
+            "sizeInBytes": 10804,
+            "url": "/uploads/thumbnail_gasstrip_logo_b08554eed4.png"
+          },
+          "medium": {
+            "name": "medium_gasstrip-logo.png",
+            "hash": "medium_gasstrip_logo_b08554eed4",
+            "ext": ".png",
+            "mime": "image/png",
+            "path": null,
+            "width": 750,
+            "height": 750,
+            "size": 57.35,
+            "sizeInBytes": 57350,
+            "url": "/uploads/medium_gasstrip_logo_b08554eed4.png"
+          },
+          "small": {
+            "name": "small_gasstrip-logo.png",
+            "hash": "small_gasstrip_logo_b08554eed4",
+            "ext": ".png",
+            "mime": "image/png",
+            "path": null,
+            "width": 500,
+            "height": 500,
+            "size": 35.71,
+            "sizeInBytes": 35707,
+            "url": "/uploads/small_gasstrip_logo_b08554eed4.png"
+          },
+          "large": {
+            "name": "large_gasstrip-logo.png",
+            "hash": "large_gasstrip_logo_b08554eed4",
+            "ext": ".png",
+            "mime": "image/png",
+            "path": null,
+            "width": 1000,
+            "height": 1000,
+            "size": 70.47,
+            "sizeInBytes": 70475,
+            "url": "/uploads/large_gasstrip_logo_b08554eed4.png"
+          }
+        },
+        "hash": "gasstrip_logo_b08554eed4",
+        "ext": ".png",
+        "mime": "image/png",
+        "size": 72.5,
+        "url": "/uploads/gasstrip_logo_b08554eed4.png",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "createdAt": "2025-10-27T22:00:58.967Z",
+        "updatedAt": "2025-10-27T22:00:58.967Z",
+        "publishedAt": "2025-10-27T22:00:58.968Z"
+      },
+      "Image": {
+        "id": 2,
+        "documentId": "be04z0uuynq7oceetco79ypr",
+        "name": "bali.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 5477,
+        "height": 3651,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_bali.jpg",
+            "hash": "thumbnail_bali_c14571b9ac",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 234,
+            "height": 156,
+            "size": 6.2,
+            "sizeInBytes": 6199,
+            "url": "/uploads/thumbnail_bali_c14571b9ac.jpg"
+          },
+          "medium": {
+            "name": "medium_bali.jpg",
+            "hash": "medium_bali_c14571b9ac",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 750,
+            "height": 500,
+            "size": 50.04,
+            "sizeInBytes": 50036,
+            "url": "/uploads/medium_bali_c14571b9ac.jpg"
+          },
+          "small": {
+            "name": "small_bali.jpg",
+            "hash": "small_bali_c14571b9ac",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 500,
+            "height": 333,
+            "size": 23.1,
+            "sizeInBytes": 23095,
+            "url": "/uploads/small_bali_c14571b9ac.jpg"
+          },
+          "large": {
+            "name": "large_bali.jpg",
+            "hash": "large_bali_c14571b9ac",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 1000,
+            "height": 666,
+            "size": 85.68,
+            "sizeInBytes": 85679,
+            "url": "/uploads/large_bali_c14571b9ac.jpg"
+          }
+        },
+        "hash": "bali_c14571b9ac",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "size": 2534.41,
+        "url": "/uploads/bali_c14571b9ac.jpg",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "createdAt": "2025-10-27T22:00:58.528Z",
+        "updatedAt": "2025-10-27T22:00:58.528Z",
+        "publishedAt": "2025-10-27T22:00:58.529Z"
+      }
+    }
+  },
+  "meta": {}
+}

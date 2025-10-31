@@ -1,0 +1,227 @@
+{
+  "data": {
+    "id": 22,
+    "documentId": "yslbb7ht67gpeberxm2xjwqc",
+    "createdAt": "2025-10-28T07:27:12.018Z",
+    "updatedAt": "2025-10-29T02:01:13.608Z",
+    "publishedAt": "2025-10-29T02:01:13.619Z",
+    "HomeHero": {
+      "id": 63,
+      "Title": "Pesona Yang Memikat Untuk Perjalanan Anda",
+      "Description": "Temukan keindahan tersembunyi dari destinasi-destinasi menakjubkan dalam koleksi pilihan kami! Jangan sampai terlewatkan untuk menjelajahi keajaiban yang memikat bersama kami dan ciptakan momen tak terlupakan\n\n",
+      "Background": [
+        {
+          "id": 3,
+          "documentId": "m59qka1oa2f348kx7byop8n1",
+          "name": "bromo.jpg",
+          "alternativeText": null,
+          "caption": null,
+          "width": 5556,
+          "height": 3704,
+          "formats": {
+            "thumbnail": {
+              "name": "thumbnail_bromo.jpg",
+              "hash": "thumbnail_bromo_2eeb397d23",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "path": null,
+              "width": 234,
+              "height": 156,
+              "size": 6.99,
+              "sizeInBytes": 6994,
+              "url": "/uploads/thumbnail_bromo_2eeb397d23.jpg"
+            },
+            "medium": {
+              "name": "medium_bromo.jpg",
+              "hash": "medium_bromo_2eeb397d23",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "path": null,
+              "width": 750,
+              "height": 500,
+              "size": 54.36,
+              "sizeInBytes": 54359,
+              "url": "/uploads/medium_bromo_2eeb397d23.jpg"
+            },
+            "large": {
+              "name": "large_bromo.jpg",
+              "hash": "large_bromo_2eeb397d23",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "path": null,
+              "width": 1000,
+              "height": 667,
+              "size": 90.05,
+              "sizeInBytes": 90050,
+              "url": "/uploads/large_bromo_2eeb397d23.jpg"
+            },
+            "small": {
+              "name": "small_bromo.jpg",
+              "hash": "small_bromo_2eeb397d23",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "path": null,
+              "width": 500,
+              "height": 334,
+              "size": 25.9,
+              "sizeInBytes": 25895,
+              "url": "/uploads/small_bromo_2eeb397d23.jpg"
+            }
+          },
+          "hash": "bromo_2eeb397d23",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "size": 3035.24,
+          "url": "/uploads/bromo_2eeb397d23.jpg",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2025-10-27T22:00:58.613Z",
+          "updatedAt": "2025-10-27T22:00:58.613Z",
+          "publishedAt": "2025-10-27T22:00:58.613Z"
+        },
+        {
+          "id": 2,
+          "documentId": "be04z0uuynq7oceetco79ypr",
+          "name": "bali.jpg",
+          "alternativeText": null,
+          "caption": null,
+          "width": 5477,
+          "height": 3651,
+          "formats": {
+            "thumbnail": {
+              "name": "thumbnail_bali.jpg",
+              "hash": "thumbnail_bali_c14571b9ac",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "path": null,
+              "width": 234,
+              "height": 156,
+              "size": 6.2,
+              "sizeInBytes": 6199,
+              "url": "/uploads/thumbnail_bali_c14571b9ac.jpg"
+            },
+            "medium": {
+              "name": "medium_bali.jpg",
+              "hash": "medium_bali_c14571b9ac",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "path": null,
+              "width": 750,
+              "height": 500,
+              "size": 50.04,
+              "sizeInBytes": 50036,
+              "url": "/uploads/medium_bali_c14571b9ac.jpg"
+            },
+            "small": {
+              "name": "small_bali.jpg",
+              "hash": "small_bali_c14571b9ac",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "path": null,
+              "width": 500,
+              "height": 333,
+              "size": 23.1,
+              "sizeInBytes": 23095,
+              "url": "/uploads/small_bali_c14571b9ac.jpg"
+            },
+            "large": {
+              "name": "large_bali.jpg",
+              "hash": "large_bali_c14571b9ac",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "path": null,
+              "width": 1000,
+              "height": 666,
+              "size": 85.68,
+              "sizeInBytes": 85679,
+              "url": "/uploads/large_bali_c14571b9ac.jpg"
+            }
+          },
+          "hash": "bali_c14571b9ac",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "size": 2534.41,
+          "url": "/uploads/bali_c14571b9ac.jpg",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2025-10-27T22:00:58.528Z",
+          "updatedAt": "2025-10-27T22:00:58.528Z",
+          "publishedAt": "2025-10-27T22:00:58.529Z"
+        },
+        {
+          "id": 1,
+          "documentId": "t7jvyzq5fjjsa4w2aso1z8sz",
+          "name": "pantai.jpg",
+          "alternativeText": null,
+          "caption": null,
+          "width": 3472,
+          "height": 4624,
+          "formats": {
+            "thumbnail": {
+              "name": "thumbnail_pantai.jpg",
+              "hash": "thumbnail_pantai_183bec45f3",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "path": null,
+              "width": 117,
+              "height": 156,
+              "size": 3.59,
+              "sizeInBytes": 3594,
+              "url": "/uploads/thumbnail_pantai_183bec45f3.jpg"
+            },
+            "medium": {
+              "name": "medium_pantai.jpg",
+              "hash": "medium_pantai_183bec45f3",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "path": null,
+              "width": 563,
+              "height": 750,
+              "size": 54.83,
+              "sizeInBytes": 54828,
+              "url": "/uploads/medium_pantai_183bec45f3.jpg"
+            },
+            "small": {
+              "name": "small_pantai.jpg",
+              "hash": "small_pantai_183bec45f3",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "path": null,
+              "width": 375,
+              "height": 500,
+              "size": 25.62,
+              "sizeInBytes": 25623,
+              "url": "/uploads/small_pantai_183bec45f3.jpg"
+            },
+            "large": {
+              "name": "large_pantai.jpg",
+              "hash": "large_pantai_183bec45f3",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "path": null,
+              "width": 751,
+              "height": 1000,
+              "size": 95.66,
+              "sizeInBytes": 95662,
+              "url": "/uploads/large_pantai_183bec45f3.jpg"
+            }
+          },
+          "hash": "pantai_183bec45f3",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "size": 1438.77,
+          "url": "/uploads/pantai_183bec45f3.jpg",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2025-10-27T22:00:58.436Z",
+          "updatedAt": "2025-10-27T22:00:58.436Z",
+          "publishedAt": "2025-10-27T22:00:58.437Z"
+        }
+      ]
+    }
+  },
+  "meta": {}
+}

@@ -1,0 +1,39 @@
+{
+  "data": {
+    "id": 14,
+    "documentId": "vdmqt1ri57c0jabuqo7nc63p",
+    "createdAt": "2025-10-28T00:45:17.110Z",
+    "updatedAt": "2025-10-29T10:12:00.296Z",
+    "publishedAt": "2025-10-29T10:12:00.305Z",
+    "Information": [
+      {
+        "id": 13,
+        "Title": "Contact Information",
+        "Description": "Tim profesional kami siap membantu mewujudkan perjalanan impian Anda dengan layanan terbaik dan pengalaman tak terlupakan.",
+        "DetailInformation": [
+          {
+            "id": 288,
+            "Title": "Alamat",
+            "Description": "ya Pondok Gede Nomor 18 E, Lubang Buaya, Kec. Cipayung, DKI Jakarta"
+          },
+          {
+            "id": 289,
+            "Title": "Jam Operasional",
+            "Description": "Senin - Jumat \n09.00 WIB 17.00 WIB\nWeekend:\n12.00 WIB - 15.00 WIB"
+          },
+          {
+            "id": 290,
+            "Title": "Email",
+            "Description": "admin@gasstrip.com\n"
+          },
+          {
+            "id": 291,
+            "Title": "Telepon",
+            "Description": "+62 877-8574-0144"
+          }
+        ]
+      }
+    ]
+  },
+  "meta": {}
+}
