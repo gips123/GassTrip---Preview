@@ -3,12 +3,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Calendar, Users, CreditCard, Shield, Star, Clock, Check, ChevronLeft, ChevronRight } from 'lucide-react';
 import Button from '@/components/ui/Button';
+import BookingFormModal from '../modals/BookingFormModal';
+import PaymentMethodModal from '../modals/PaymentMethodModal';
+import { useBooking, BookingProvider } from '../../context/BookingContext';
 
 interface PackageDetailBookingProps {
   packageId: string;
 }
 
-const PackageDetailBooking: React.FC<PackageDetailBookingProps> = ({ packageId }) => {
+// Main component with booking context
+const PackageDetailBookingContent: React.FC<PackageDetailBookingProps> = ({ packageId }) => {
+  const { state, openBookingForm, closeBookingForm, submitBookingForm, closePaymentMethod, selectPaymentMethod } = useBooking();
   const [checkInDate, setCheckInDate] = useState('');
   const [checkOutDate, setCheckOutDate] = useState('');
   const [travelers, setTravelers] = useState(2);
@@ -18,13 +23,27 @@ const PackageDetailBooking: React.FC<PackageDetailBookingProps> = ({ packageId }
 
   // Mock data - in real app, fetch from API
   const packageData = {
+    id: packageId,
+    title: "Paket Petualangan Bali",
+    location: "Bali, Indonesia",
     price: 6188000,
     originalPrice: 7500000,
     discount: 17,
     rating: 4.8,
     reviews: 124,
-    duration: "3 Days 2 Nights",
-    groupSize: "2-8 People"
+    duration: "3 Hari 2 Malam",
+    groupSize: "2-8 Orang"
+  };
+
+  const handleBookNow = () => {
+    const packageInfo = {
+      id: packageData.id,
+      title: packageData.title,
+      price: formatPrice(packageData.price),
+      duration: packageData.duration,
+      location: packageData.location
+    };
+    openBookingForm(packageInfo);
   };
 
   const calculateTotal = () => {
@@ -327,7 +346,7 @@ const PackageDetailBooking: React.FC<PackageDetailBookingProps> = ({ packageId }
           <div className="mb-6">
             <label className="block font-semibold text-gray-900 mb-3">
               <Users className="w-4 h-4 inline mr-2" />
-              Number of Travelers
+              Jumlah Wisatawan
             </label>
             <div className="flex items-center space-x-4">
               <button
@@ -344,18 +363,18 @@ const PackageDetailBooking: React.FC<PackageDetailBookingProps> = ({ packageId }
                 +
               </button>
             </div>
-            <p className="text-sm text-gray-500 mt-2">Maximum 8 people per group</p>
+            <p className="text-sm text-gray-500 mt-2">Maksimal 8 orang per grup</p>
           </div>
 
           {/* Price Summary */}
           <div className="bg-gray-50 rounded-lg p-4 mb-6">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-gray-600">Base price × {travelers} travelers</span>
+              <span className="text-gray-600">Harga dasar × {travelers} wisatawan</span>
               <span className="font-semibold">{formatPrice(calculateTotal())}</span>
             </div>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-gray-600">Service fee</span>
-              <span className="font-semibold">Free</span>
+              <span className="text-gray-600">Biaya layanan</span>
+              <span className="font-semibold">Gratis</span>
             </div>
             <div className="border-t border-gray-300 pt-2">
               <div className="flex items-center justify-between">
@@ -368,16 +387,17 @@ const PackageDetailBooking: React.FC<PackageDetailBookingProps> = ({ packageId }
           {/* Book Now Button */}
           <Button 
             variant="primary"
+            onClick={handleBookNow}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 mb-4"
           >
             <CreditCard className="w-5 h-5 mr-2" />
-            Book Now
+            Pesan Sekarang
           </Button>
 
           {/* Security Badge */}
           <div className="flex items-center justify-center text-sm text-gray-500">
             <Shield className="w-4 h-4 mr-2" />
-            Secure booking with instant confirmation
+            Pemesanan aman dengan konfirmasi instan
           </div>
         </div>
 
@@ -386,20 +406,49 @@ const PackageDetailBooking: React.FC<PackageDetailBookingProps> = ({ packageId }
           <div className="space-y-3 text-sm text-gray-600">
             <div className="flex items-center">
               <Clock className="w-4 h-4 mr-2" />
-              <span>Duration: {packageData.duration}</span>
+              <span>Durasi: {packageData.duration}</span>
             </div>
             <div className="flex items-center">
               <Users className="w-4 h-4 mr-2" />
-              <span>Group size: {packageData.groupSize}</span>
+              <span>Ukuran grup: {packageData.groupSize}</span>
             </div>
             <div className="flex items-center">
               <Check className="w-4 h-4 mr-2" />
-              <span>Free cancellation up to 24 hours</span>
+              <span>Pembatalan gratis hingga 24 jam</span>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Modals */}
+      <BookingFormModal
+        isOpen={state.isBookingFormOpen}
+        onClose={closeBookingForm}
+        onNext={submitBookingForm}
+        packageData={state.packageData}
+      />
+
+      <PaymentMethodModal
+        isOpen={state.isPaymentMethodOpen}
+        onClose={closePaymentMethod}
+        onConfirm={selectPaymentMethod}
+        bookingData={{
+          packageTitle: packageData.title,
+          totalPrice: formatPrice(calculateTotal()),
+          guests: travelers,
+          duration: packageData.duration
+        }}
+      />
     </div>
+  );
+};
+
+// Wrapper component with BookingProvider
+const PackageDetailBooking: React.FC<PackageDetailBookingProps> = ({ packageId }) => {
+  return (
+    <BookingProvider>
+      <PackageDetailBookingContent packageId={packageId} />
+    </BookingProvider>
   );
 };
 

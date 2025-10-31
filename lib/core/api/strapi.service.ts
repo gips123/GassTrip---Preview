@@ -41,9 +41,30 @@ export class StrapiService {
   // Home Page API Methods
   static async getHomePageData() {
     try {
-      const response = await strapiClient.get<any>('/home?populate=*');
-      console.log('[StrapiService] Home page data fetched successfully');
-      return response.data;
+      // Multiple API calls for Strapi v5 - each component needs specific populate
+      const [homeHeroResponse, homeFeaturedResponse, testimonialsResponse, experienceResponse] = await Promise.all([
+        strapiClient.get<any>('/home?populate[HomeHero][populate]=*'),
+        strapiClient.get<any>('/home?populate[HomeFeatured][populate]=*'),
+        strapiClient.get<any>('/home?populate[Testimonials][populate]=*'),
+        strapiClient.get<any>('/home?populate[Experience][populate]=*')
+      ]);
+
+      // Merge all responses into one data object
+      const mergedData = {
+        id: homeHeroResponse.data.id,
+        documentId: homeHeroResponse.data.documentId,
+        createdAt: homeHeroResponse.data.createdAt,
+        updatedAt: homeHeroResponse.data.updatedAt,
+        publishedAt: homeHeroResponse.data.publishedAt,
+        HomeHero: homeHeroResponse.data.HomeHero,
+        HomeFeatured: homeFeaturedResponse.data.HomeFeatured,
+        Testimonials: testimonialsResponse.data.Testimonials,
+        Experience: experienceResponse.data.Experience
+      };
+
+      console.log('[StrapiService] Home page data merged successfully');
+      return mergedData;
+      
     } catch (error) {
       console.error('[StrapiService] Error fetching home page data:', error);
       throw new Error(`Failed to fetch home page data: ${error}`);
@@ -88,6 +109,31 @@ export class StrapiService {
     } catch (error) {
       console.error('[StrapiService] Error fetching contact page data:', error);
       throw new Error(`Failed to fetch contact page data: ${error}`);
+    }
+  }
+
+  // Package Page API Methods
+  static async getPackagePageData() {
+    try {
+      // Single API call for Package page
+      const packageHeroResponse = await strapiClient.get<any>('/Package?populate[PackageHero][populate]=*');
+
+      // Return the data directly (no merging needed for single call)
+      const mergedData = {
+        id: packageHeroResponse.data.id,
+        documentId: packageHeroResponse.data.documentId,
+        createdAt: packageHeroResponse.data.createdAt,
+        updatedAt: packageHeroResponse.data.updatedAt,
+        publishedAt: packageHeroResponse.data.publishedAt,
+        PackageHero: packageHeroResponse.data.PackageHero
+      };
+
+      console.log('[StrapiService] Package page data fetched successfully');
+      return mergedData;
+      
+    } catch (error) {
+      console.error('[StrapiService] Error fetching package page data:', error);
+      throw new Error(`Failed to fetch package page data: ${error}`);
     }
   }
 }

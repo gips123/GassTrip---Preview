@@ -12,64 +12,64 @@ const PackageDetailInclusion: React.FC<PackageDetailInclusionProps> = ({ package
   const inclusions = [
     {
       icon: <Car className="w-6 h-6" />,
-      title: "Transportation",
+      title: "Transportasi",
       items: [
-        "Air-conditioned vehicle",
-        "Professional driver",
-        "Fuel and toll fees",
-        "Airport transfers"
+        "Kendaraan ber-AC",
+        "Sopir profesional",
+        "Bahan bakar dan tol",
+        "Transfer bandara"
       ]
     },
     {
       icon: <Utensils className="w-6 h-6" />,
-      title: "Meals",
+      title: "Makanan",
       items: [
-        "Daily breakfast",
-        "Traditional Balinese lunch",
-        "Welcome dinner",
-        "Cooking class meal"
+        "Sarapan harian",
+        "Makan siang tradisional Bali",
+        "Makan malam selamat datang",
+        "Makanan kelas memasak"
       ]
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: "Activities & Entrance",
+      title: "Aktivitas & Tiket Masuk",
       items: [
-        "All temple entrance fees",
-        "Rice terrace access",
-        "Monkey forest ticket",
-        "Mount Batur trek permit"
+        "Semua tiket masuk pura",
+        "Akses teras sawah",
+        "Tiket hutan monyet",
+        "Izin trek Gunung Batur"
       ]
     },
     {
       icon: <Shield className="w-6 h-6" />,
-      title: "Safety & Support",
+      title: "Keamanan & Dukungan",
       items: [
-        "Travel insurance",
-        "Professional guide",
-        "Safety equipment",
-        "24/7 support"
+        "Asuransi perjalanan",
+        "Pemandu profesional",
+        "Peralatan keselamatan",
+        "Dukungan 24/7"
       ]
     }
   ];
 
   const exclusions = [
-    "International flights",
-    "Personal expenses",
-    "Optional activities",
-    "Tips and gratuities",
-    "Alcoholic beverages",
-    "Spa treatments"
+    "Tiket pesawat internasional",
+    "Pengeluaran pribadi",
+    "Aktivitas opsional",
+    "Tips dan gratifikasi",
+    "Minuman beralkohol",
+    "Perawatan spa"
   ];
 
   return (
     <div className="bg-white rounded-2xl shadow-lg p-8">
-      <h2 className="text-2xl font-bold text-gray-900 mb-8">What's Included & Excluded</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-8">Yang Termasuk & Tidak Termasuk</h2>
       
       {/* Inclusions */}
       <div className="mb-8">
         <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
           <Check className="w-6 h-6 text-green-600 mr-2" />
-          What's Included
+          Yang Termasuk
         </h3>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -99,7 +99,7 @@ const PackageDetailInclusion: React.FC<PackageDetailInclusionProps> = ({ package
       <div>
         <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
           <X className="w-6 h-6 text-red-600 mr-2" />
-          What's Not Included
+          Yang Tidak Termasuk
         </h3>
         
         <div className="bg-red-50 border border-red-200 rounded-xl p-6">
@@ -118,14 +118,14 @@ const PackageDetailInclusion: React.FC<PackageDetailInclusionProps> = ({ package
       <div className="mt-8 bg-yellow-50 border border-yellow-200 rounded-xl p-6">
         <h4 className="font-bold text-gray-900 mb-3 flex items-center">
           <Clock className="w-5 h-5 text-yellow-600 mr-2" />
-          Important Notes
+          Catatan Penting
         </h4>
         <ul className="space-y-2 text-sm text-gray-600">
-          <li>• Please bring comfortable walking shoes and light clothing</li>
-          <li>• Camera and personal items are your responsibility</li>
-          <li>• Vegetarian meal options available upon request</li>
-          <li>• Minimum age requirement: 12 years old</li>
-          <li>• Weather-dependent activities may be rescheduled</li>
+          <li>• Harap bawa sepatu jalan yang nyaman dan pakaian ringan</li>
+          <li>• Kamera dan barang pribadi menjadi tanggung jawab Anda</li>
+          <li>• Opsi makanan vegetarian tersedia sesuai permintaan</li>
+          <li>• Persyaratan usia minimum: 12 tahun</li>
+          <li>• Aktivitas yang bergantung pada cuaca mungkin dijadwalkan ulang</li>
         </ul>
       </div>
     </div>

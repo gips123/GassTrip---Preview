@@ -2,8 +2,13 @@
 
 import React from 'react';
 import { Heart, Star } from 'lucide-react';
+import { HomeTestimonialsTransformed } from '../core';
 
-const TestimonialsSection: React.FC = () => {
+interface TestimonialsSectionProps {
+  testimonials: HomeTestimonialsTransformed;
+}
+
+const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ testimonials }) => {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
 
@@ -13,14 +18,12 @@ const TestimonialsSection: React.FC = () => {
           <div className="space-y-8">
             {/* Main Headline */}
             <h2 className="text-3xl md:text-3xl lg:text-5xl font-bold text-gray-900 leading-tight">
-              Telah Melayani 10.000+ Wisatawan
+              {testimonials.title}
             </h2>
             
             {/* Description */}
             <p className="text-lg text-gray-700 leading-relaxed max-w-lg">
-              Menggunakan GASS TRIP merupakan pilihan cerdas untuk kamu yang ingin liburan tanpa repot. 
-              Dengan pengalaman, jaringan, dan keahlian yang mereka miliki, agen wisata akan memastikan 
-              liburanmu berjalan lancar, nyaman, dan penuh kenangan indah.
+              {testimonials.description}
             </p>
 
             {/* Brand Section */}
@@ -28,8 +31,8 @@ const TestimonialsSection: React.FC = () => {
               {/* Logo */}
               <div className="flex-shrink-0">
                 <img 
-                  src="/gasstrip-logo.png" 
-                  alt="Gasstrip Logo" 
+                  src={testimonials.logo.url} 
+                  alt={testimonials.logo.alt} 
                   className="w-20 h-20 object-contain"
                 />
                 
@@ -38,10 +41,10 @@ const TestimonialsSection: React.FC = () => {
               {/* Brand Text */}
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                  GASS TRIP
+                  {testimonials.logoName}
                 </h3>
                 <p className="text-gray-600 font-medium">
-                  Petualangan seru menantimu
+                  {testimonials.logoText}
                 </p>
               </div>
             </div>
@@ -51,8 +54,8 @@ const TestimonialsSection: React.FC = () => {
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="/pantai.jpg"
-                alt="Adventure in tropical destination"
+                src={testimonials.image.url}
+                alt={testimonials.image.alt}
                 className="w-full h-96 lg:h-[500px] object-cover"
                 onLoad={() => console.log('Testimonials image loaded successfully')}
                 onError={() => console.error('Failed to load testimonials image')}

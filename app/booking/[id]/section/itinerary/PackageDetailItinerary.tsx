@@ -14,113 +14,113 @@ const PackageDetailItinerary: React.FC<PackageDetailItineraryProps> = ({ package
   const itinerary = [
     {
       day: 1,
-      title: "Arrival & Ubud Exploration",
-      date: "Day 1",
+      title: "Kedatangan & Eksplorasi Ubud",
+      date: "Hari 1",
       activities: [
         {
           time: "08:00",
-          title: "Hotel Pickup",
-          description: "Pickup from your hotel in Denpasar or Sanur area",
+          title: "Penjemputan Hotel",
+          description: "Penjemputan dari hotel Anda di area Denpasar atau Sanur",
           location: "Denpasar/Sanur",
-          duration: "30 minutes"
+          duration: "30 menit"
         },
         {
           time: "09:00",
-          title: "Visit Tanah Lot Temple",
-          description: "Explore the iconic sea temple and witness the stunning ocean views",
+          title: "Kunjungi Pura Tanah Lot",
+          description: "Jelajahi pura laut ikonik dan saksikan pemandangan laut yang menakjubkan",
           location: "Tanah Lot, Tabanan",
-          duration: "2 hours"
+          duration: "2 jam"
         },
         {
           time: "12:00",
-          title: "Traditional Balinese Lunch",
-          description: "Enjoy authentic Balinese cuisine at a local restaurant",
+          title: "Makan Siang Tradisional Bali",
+          description: "Nikmati masakan Bali otentik di restoran lokal",
           location: "Ubud",
-          duration: "1 hour"
+          duration: "1 jam"
         },
         {
           time: "14:00",
-          title: "Tegallalang Rice Terraces",
-          description: "Walk through the famous rice terraces and learn about traditional farming",
+          title: "Teras Sawah Tegallalang",
+          description: "Berjalan melalui teras sawah terkenal dan pelajari tentang pertanian tradisional",
           location: "Tegallalang, Ubud",
-          duration: "2 hours"
+          duration: "2 jam"
         },
         {
           time: "17:00",
-          title: "Ubud Monkey Forest",
-          description: "Visit the sacred monkey forest and interact with friendly monkeys",
-          location: "Ubud Monkey Forest",
-          duration: "1 hour"
+          title: "Hutan Monyet Ubud",
+          description: "Kunjungi hutan monyet suci dan berinteraksi dengan monyet-monyet yang ramah",
+          location: "Hutan Monyet Ubud",
+          duration: "1 jam"
         }
       ]
     },
     {
       day: 2,
-      title: "Cultural Immersion & Beach Time",
-      date: "Day 2",
+      title: "Imersi Budaya & Waktu Pantai",
+      date: "Hari 2",
       activities: [
         {
           time: "08:00",
-          title: "Traditional Balinese Cooking Class",
-          description: "Learn to cook authentic Balinese dishes with local ingredients",
-          location: "Ubud Cooking School",
-          duration: "3 hours"
+          title: "Kelas Memasak Tradisional Bali",
+          description: "Belajar memasak hidangan Bali otentik dengan bahan-bahan lokal",
+          location: "Sekolah Memasak Ubud",
+          duration: "3 jam"
         },
         {
           time: "12:00",
-          title: "Lunch with Cooking Class",
-          description: "Enjoy the dishes you prepared during the cooking class",
-          location: "Ubud Cooking School",
-          duration: "1 hour"
+          title: "Makan Siang dengan Kelas Memasak",
+          description: "Nikmati hidangan yang Anda siapkan selama kelas memasak",
+          location: "Sekolah Memasak Ubud",
+          duration: "1 jam"
         },
         {
           time: "14:00",
-          title: "Visit Ubud Art Market",
-          description: "Shop for local handicrafts, textiles, and souvenirs",
-          location: "Ubud Art Market",
-          duration: "1.5 hours"
+          title: "Kunjungi Pasar Seni Ubud",
+          description: "Belanja kerajinan tangan lokal, tekstil, dan suvenir",
+          location: "Pasar Seni Ubud",
+          duration: "1.5 jam"
         },
         {
           time: "16:00",
-          title: "Jimbaran Beach Sunset",
-          description: "Relax at Jimbaran Beach and enjoy the famous sunset",
-          location: "Jimbaran Beach",
-          duration: "2 hours"
+          title: "Matahari Terbenam Pantai Jimbaran",
+          description: "Bersantai di Pantai Jimbaran dan nikmati matahari terbenam yang terkenal",
+          location: "Pantai Jimbaran",
+          duration: "2 jam"
         }
       ]
     },
     {
       day: 3,
-      title: "Adventure & Departure",
-      date: "Day 3",
+      title: "Petualangan & Keberangkatan",
+      date: "Hari 3",
       activities: [
         {
           time: "08:00",
-          title: "Mount Batur Sunrise Trek",
-          description: "Early morning trek to Mount Batur for spectacular sunrise views",
-          location: "Mount Batur, Kintamani",
-          duration: "4 hours"
+          title: "Trek Matahari Terbit Gunung Batur",
+          description: "Trek pagi-pagi ke Gunung Batur untuk pemandangan matahari terbit yang spektakuler",
+          location: "Gunung Batur, Kintamani",
+          duration: "4 jam"
         },
         {
           time: "12:00",
-          title: "Breakfast at Mount Batur",
-          description: "Enjoy breakfast with panoramic views of the volcano",
-          location: "Mount Batur Summit",
-          duration: "1 hour"
+          title: "Sarapan di Gunung Batur",
+          description: "Nikmati sarapan dengan pemandangan panorama gunung berapi",
+          location: "Puncak Gunung Batur",
+          duration: "1 jam"
         },
         {
           time: "14:00",
-          title: "Tirta Empul Temple",
-          description: "Visit the holy water temple and participate in purification ritual",
+          title: "Pura Tirta Empul",
+          description: "Kunjungi pura air suci dan ikuti ritual pembersihan",
           location: "Tirta Empul, Tampaksiring",
-          duration: "1.5 hours"
+          duration: "1.5 jam"
         },
         {
           time: "16:00",
-          title: "Return to Hotel",
-          description: "Transfer back to your hotel or airport",
+          title: "Kembali ke Hotel",
+          description: "Transfer kembali ke hotel atau bandara Anda",
           location: "Denpasar/Sanur",
-          duration: "1 hour"
+          duration: "1 jam"
         }
       ]
     }
@@ -132,7 +132,7 @@ const PackageDetailItinerary: React.FC<PackageDetailItineraryProps> = ({ package
 
   return (
     <div className="bg-white rounded-2xl shadow-lg p-8">
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Detailed Itinerary</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">Itinerary Detail</h2>
       
       <div className="space-y-4">
         {itinerary.map((day) => (

@@ -1,125 +1,194 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Star, MapPin, Clock, Users, Heart, Filter, Search } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { Search, Calendar } from 'lucide-react';
+import DateRangePopover from '../components/DateRangePopover';
+import GuestsPopover from '../components/GuestsPopover';
+import FilterDropdown from '../components/FilterDropdown';
 import { useRouter } from 'next/navigation';
 import Button from '@/components/ui/Button';
+import TourPackagesGrid from '../components/TourPackagesGrid';
 
 const TourPackagesSection: React.FC = () => {
   const [favorites, setFavorites] = useState<number[]>([]);
   const [sortBy, setSortBy] = useState('popularity');
+  const [locationQuery, setLocationQuery] = useState('');
+  const [checkIn, setCheckIn] = useState<string>('');
+  const [checkOut, setCheckOut] = useState<string>('');
+  const [rooms, setRooms] = useState<number>(1);
+  const [guests, setGuests] = useState<number>(2);
+  const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
+  const filterRef = useRef<HTMLDivElement>(null);
+  const [isDateOpen, setIsDateOpen] = useState<boolean>(false);
+  const [isGuestsOpen, setIsGuestsOpen] = useState<boolean>(false);
+  const dateRef = useRef<HTMLDivElement>(null);
+  const guestsRef = useRef<HTMLDivElement>(null);
+  const [currentMonth, setCurrentMonth] = useState<Date>(new Date());
+
+  const startOfMonth = (date: Date) => new Date(date.getFullYear(), date.getMonth(), 1);
+  const addMonths = (date: Date, n: number) => new Date(date.getFullYear(), date.getMonth() + n, 1);
+  const fmtShort = (d: Date) => d.toLocaleDateString('id-ID', { month: 'long', year: 'numeric' });
+  const toISO = (d: Date) => d.toISOString().split('T')[0];
+  const fromISO = (s: string) => (s ? new Date(s + 'T00:00:00') : null);
+
+  const getMonthGrid = (date: Date) => {
+    const first = startOfMonth(date);
+    const firstWeekday = first.getDay();
+    const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+    const cells: (Date | null)[] = [];
+    // leading blanks (treat Sunday as 0)
+    for (let i = 0; i < firstWeekday; i++) cells.push(null);
+    for (let d = 1; d <= daysInMonth; d++) cells.push(new Date(date.getFullYear(), date.getMonth(), d));
+    return cells;
+  };
+
+  const isInRange = (d: Date) => {
+    if (!checkIn || !checkOut) return false;
+    const x = toISO(d);
+    return x > checkIn && x < checkOut;
+  };
+
+  const isStart = (d: Date) => checkIn && toISO(d) === checkIn;
+  const isEnd = (d: Date) => checkOut && toISO(d) === checkOut;
+
+  const onPickDay = (d: Date) => {
+    const day = toISO(d);
+    if (!checkIn || (checkIn && checkOut)) {
+      setCheckIn(day);
+      setCheckOut('');
+    } else if (day >= checkIn) {
+      setCheckOut(day);
+    } else {
+      // if picked earlier than start, set as new start
+      setCheckIn(day);
+      setCheckOut('');
+    }
+  };
+
+  useEffect(() => {
+    const onClickOutside = (e: MouseEvent) => {
+      const target = e.target as Node;
+      if (filterRef.current && !filterRef.current.contains(target)) setIsFilterOpen(false);
+      if (dateRef.current && !dateRef.current.contains(target)) setIsDateOpen(false);
+      if (guestsRef.current && !guestsRef.current.contains(target)) setIsGuestsOpen(false);
+    };
+    if (isFilterOpen) document.addEventListener('mousedown', onClickOutside);
+    if (isDateOpen) document.addEventListener('mousedown', onClickOutside);
+    if (isGuestsOpen) document.addEventListener('mousedown', onClickOutside);
+    return () => document.removeEventListener('mousedown', onClickOutside);
+  }, [isFilterOpen, isDateOpen, isGuestsOpen]);
   const router = useRouter();
 
   const tourPackages = [
     {
       id: 1,
-      title: "Bali Adventure Package",
+      title: "Paket Petualangan Bali",
       location: "Bali, Indonesia",
       price: "Rp6.188.000",
       originalPrice: "Rp7.500.000",
       image: "/bali.jpg",
-      duration: "3 Days 2 Nights",
+      duration: "3 Hari 2 Malam",
       rating: 4.8,
       reviews: 124,
-      groupSize: "2-8 People",
+      groupSize: "2-8 Orang",
       isPopular: true,
       discount: 17
     },
     {
       id: 2,
-      title: "Bromo Sunrise Experience",
-      location: "Bromo, East Java",
-      price: "Rp3.797.000",
-      originalPrice: "Rp4.200.000",
+      title: "Paket Bromo Sunrise",
+      location: "Bromo, Jawa Timur",
+      price: "Rp2.500.000",
+      originalPrice: "Rp3.000.000",
       image: "/bromo.jpg",
-      duration: "3 Days 2 Nights",
-      rating: 4.9,
+      duration: "2 Hari 1 Malam",
+      rating: 4.7,
       reviews: 89,
-      groupSize: "2-6 People",
+      groupSize: "2-6 Orang",
       isPopular: true,
-      discount: 10
+      discount: 17
     },
     {
       id: 3,
-      title: "Flores Island Discovery",
-      location: "Flores, NTT",
-      price: "Rp3.889.000",
-      originalPrice: "Rp4.500.000",
-      image: "/pantai.jpg",
-      duration: "2 Days 1 Night",
-      rating: 4.7,
-      reviews: 67,
-      groupSize: "2-4 People",
+      title: "Paket Budaya Yogyakarta",
+      location: "Yogyakarta, Jawa Tengah",
+      price: "Rp3.200.000",
+      originalPrice: "Rp3.800.000",
+      image: "/bali.jpg",
+      duration: "3 Hari 2 Malam",
+      rating: 4.6,
+      reviews: 156,
+      groupSize: "2-8 Orang",
       isPopular: false,
-      discount: 14
+      discount: 16
     },
     {
       id: 4,
-      title: "Kalimantan Wildlife",
-      location: "Kalimantan",
-      price: "Rp5.880.000",
-      originalPrice: "Rp6.800.000",
-      image: "/bali.jpg",
-      duration: "4 Days 3 Nights",
-      rating: 4.6,
-      reviews: 45,
-      groupSize: "2-6 People",
-      isPopular: false,
-      discount: 14
+      title: "Paket Petualangan Lombok",
+      location: "Lombok, Nusa Tenggara Barat",
+      price: "Rp4.500.000",
+      originalPrice: "Rp5.200.000",
+      image: "/pantai.jpg",
+      duration: "4 Hari 3 Malam",
+      rating: 4.9,
+      reviews: 203,
+      groupSize: "2-6 Orang",
+      isPopular: true,
+      discount: 13
     },
     {
       id: 5,
-      title: "Kawah Ijen Blue Fire",
-      location: "Banyuwangi, East Java",
+      title: "Paket Kawah Ijen Blue Fire",
+      location: "Banyuwangi, Jawa Timur",
       price: "Rp4.399.000",
       originalPrice: "Rp5.200.000",
       image: "/bromo.jpg",
-      duration: "2 Days 1 Night",
+      duration: "2 Hari 1 Malam",
       rating: 4.8,
       reviews: 78,
-      groupSize: "2-4 People",
+      groupSize: "2-4 Orang",
       isPopular: true,
       discount: 15
     },
     {
       id: 6,
-      title: "Maluku Paradise",
-      location: "Maluku Islands",
+      title: "Paket Kepulauan Maluku",
+      location: "Kepulauan Maluku",
       price: "Rp6.299.000",
       originalPrice: "Rp7.400.000",
       image: "/pantai.jpg",
-      duration: "4 Days 3 Nights",
+      duration: "4 Hari 3 Malam",
       rating: 4.9,
       reviews: 56,
-      groupSize: "2-8 People",
+      groupSize: "2-8 Orang",
       isPopular: true,
       discount: 15
     },
     {
       id: 7,
-      title: "Raja Ampat Diving",
+      title: "Paket Diving Raja Ampat",
       location: "Raja Ampat, Papua",
       price: "Rp8.866.000",
       originalPrice: "Rp10.500.000",
       image: "/bali.jpg",
-      duration: "3 Days 2 Nights",
+      duration: "3 Hari 2 Malam",
       rating: 5.0,
       reviews: 92,
-      groupSize: "2-6 People",
+      groupSize: "2-6 Orang",
       isPopular: true,
       discount: 16
     },
     {
       id: 8,
-      title: "Toraja Cultural Tour",
-      location: "Toraja, Sulawesi",
+      title: "Paket Budaya Toraja",
+      location: "Toraja, Sulawesi Selatan",
       price: "Rp4.399.000",
       originalPrice: "Rp5.100.000",
       image: "/bromo.jpg",
-      duration: "4 Days 3 Nights",
+      duration: "4 Hari 3 Malam",
       rating: 4.7,
       reviews: 34,
-      groupSize: "2-8 People",
+      groupSize: "2-8 Orang",
       isPopular: false,
       discount: 14
     }
@@ -132,12 +201,12 @@ const TourPackagesSection: React.FC = () => {
   };
 
   const handleCardClick = (id: number) => {
-    router.push(`/paket-tour/${id}`);
+    router.push(`/booking/${id}`);
   };
 
   const handleBookNow = (id: number, e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent card click
-    router.push(`/paket-tour/${id}`);
+    router.push(`/booking/${id}`);
   };
 
   return (
@@ -151,151 +220,125 @@ const TourPackagesSection: React.FC = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header Section */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Paket Wisata Terbaik
-          </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
-            Jelajahi keindahan Indonesia dengan paket wisata terpilih yang dirancang khusus untuk pengalaman tak terlupakan
-          </p>
-          
-          {/* Search and Filter Bar */}
-          <div className="flex flex-col md:flex-row gap-4 justify-center items-center mb-8">
-            <div className="relative w-full max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-              <input
-                type="text"
-                placeholder="Cari destinasi..."
-                className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-              />
-            </div>
-            <div className="flex items-center space-x-2">
-              <Filter className="w-5 h-5 text-gray-500" />
-              <select 
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="border border-gray-200 rounded-2xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+        <div className="mb-12">
+          {/* Segmented Search Bar */}
+          <div className="mx-auto w-full max-w-7xl">
+            <div className="bg-white border border-gray-200 shadow-xl rounded-[40px] px-4 py-3 md:px-8 md:py-4 flex flex-col md:flex-row md:items-center gap-4 md:gap-5 relative">
+              {/* Location */}
+              <div className="flex-1 basis-[280px] min-w-[220px] flex items-center gap-3 px-2">
+                <Search className="w-5 h-5 text-gray-400" />
+                <input
+                  value={locationQuery}
+                  onChange={(e) => setLocationQuery(e.target.value)}
+                  type="text"
+                  placeholder="Cari destinasi, kota, atau paket"
+                  className="w-full bg-transparent placeholder:text-gray-400 text-gray-900 focus:outline-none"
+                />
+              </div>
+
+              <div className="hidden md:block h-10 w-px bg-gray-200" />
+
+              <button
+                className="flex-1 basis-[220px] min-w-[180px] text-left px-2"
+                onClick={() => { setIsDateOpen(true); }}
               >
-                <option value="popularity">Sort by popularity</option>
-                <option value="price-low">Price: Low to High</option>
-                <option value="price-high">Price: High to Low</option>
-                <option value="rating">Highest Rating</option>
-              </select>
+                <div className="text-xs text-gray-500">Tanggal Pergi</div>
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4 text-gray-400" />
+                  <div className="font-semibold text-gray-900">
+                    {checkIn ? new Date(checkIn).toLocaleDateString('id-ID', { weekday: 'short', day: '2-digit', month: 'short' }) : 'Pilih tanggal'}
+                  </div>
+                </div>
+              </button>
+
+              <div className="hidden md:block h-10 w-px bg-gray-200" />
+
+              {/* Tanggal Pulang */}
+              <button
+                className="flex-1 basis-[220px] min-w-[180px] text-left px-2"
+                onClick={() => { setIsDateOpen(true); }}
+              >
+                <div className="text-xs text-gray-500">Tanggal Pulang</div>
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4 text-gray-400" />
+                  <div className="font-semibold text-gray-900">
+                    {checkOut ? new Date(checkOut).toLocaleDateString('id-ID', { weekday: 'short', day: '2-digit', month: 'short' }) : 'Pilih tanggal'}
+                  </div>
+                </div>
+              </button>
+
+              <div className="hidden md:block h-10 w-px bg-gray-200" />
+
+              {/* Tamu */}
+              <button
+                className="flex-1 basis-[240px] min-w-[200px] text-left px-2"
+                onClick={() => { setIsGuestsOpen(true); }}
+              >
+                <div className="text-xs text-gray-500">Tamu</div>
+                <div className="font-semibold text-gray-900">{guests} Tamu</div>
+              </button>
+
+              {/* Filter + Search CTA */}
+              <div className="flex items-center justify-center gap-3 md:gap-4 flex-shrink-0">
+                <div ref={filterRef} className="relative hidden md:block">
+                  <FilterDropdown
+                    isOpen={isFilterOpen}
+                    onToggle={() => setIsFilterOpen((v) => !v)}
+                    sortBy={sortBy}
+                    setSortBy={(v) => { setSortBy(v); setIsFilterOpen(false); }}
+                  />
+                </div>
+                <button
+                  className="flex items-center gap-2 px-7 md:px-8 py-3 rounded-full text-white font-semibold bg-orange-500 hover:bg-orange-600 transition-colors whitespace-nowrap"
+                  onClick={() => {
+                    // implement search trigger
+                  }}
+                >
+                  <Search className="w-5 h-5" />
+                  Cari
+                </button>
+              </div>
+
+              {/* Date popover */}
+              {isDateOpen && (
+                <div ref={dateRef} className="absolute left-4 right-4 md:left-auto md:right-[210px] top-full mt-3 z-20 w-full md:w-[540px]">
+                  <DateRangePopover
+                    isOpen={isDateOpen}
+                    onClose={() => setIsDateOpen(false)}
+                    checkIn={checkIn}
+                    checkOut={checkOut}
+                    setCheckIn={setCheckIn}
+                    setCheckOut={setCheckOut}
+                    className="w-full"
+                  />
+                </div>
+              )}
+
+              {/* Guests popover */}
+              {isGuestsOpen && (
+                <div ref={guestsRef} className="absolute right-4 top-full mt-3 z-20 w-[260px]">
+                  <GuestsPopover
+                    isOpen={isGuestsOpen}
+                    onClose={() => setIsGuestsOpen(false)}
+                    guests={guests}
+                    setGuests={setGuests}
+                    className="w-full"
+                  />
+                </div>
+              )}
             </div>
           </div>
-          
-          <div className="text-sm text-gray-500">
-            Menampilkan {tourPackages.length} paket wisata
-          </div>
+
         </div>
 
         {/* Tour Packages Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {tourPackages.map((tour) => (
-            <div 
-              key={tour.id} 
-              onClick={() => handleCardClick(tour.id)}
-              className="group bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-white/20 flex flex-col h-full cursor-pointer"
-            >
-              {/* Image Container */}
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={tour.image}
-                  alt={tour.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                
-                
-                {/* Favorite Button */}
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    toggleFavorite(tour.id);
-                  }}
-                  className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 shadow-lg"
-                >
-                  <Heart 
-                    className={`w-5 h-5 transition-colors duration-300 ${
-                      favorites.includes(tour.id) ? 'text-red-500 fill-current' : 'text-gray-400'
-                    }`} 
-                  />
-                </button>
-              </div>
-              
-              {/* Content */}
-              <div className="p-6 flex flex-col flex-grow">
-                {/* Location */}
-                <div className="flex items-center text-gray-500 text-xs mb-2">
-                  <MapPin className="w-3 h-3 mr-1" />
-                  {tour.location}
-                </div>
-                
-                {/* Title */}
-                <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors duration-300 min-h-[3.5rem]">
-                  {tour.title}
-                </h3>
-                
-                {/* Rating */}
-                <div className="flex items-center mb-3">
-                  <div className="flex items-center">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`w-3 h-3 ${
-                          i < Math.floor(tour.rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'
-                        }`}
-                      />
-                    ))}
-                  </div>
-                  <span className="text-xs text-gray-600 ml-2">
-                    {tour.rating} ({tour.reviews} reviews)
-                  </span>
-                </div>
-                
-                {/* Duration & Group Size */}
-                <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
-                  <div className="flex items-center">
-                    <Clock className="w-3 h-3 mr-1" />
-                    {tour.duration}
-                  </div>
-                  <div className="flex items-center">
-                    <Users className="w-3 h-3 mr-1" />
-                    {tour.groupSize}
-                  </div>
-                </div>
-                
-                {/* Price */}
-                <div className="mb-4">
-                  <div className="flex items-baseline space-x-2">
-                    <span className="text-lg font-bold text-gray-900">
-                      {tour.price}
-                    </span>
-                    <span className="text-sm text-gray-400 line-through">
-                      {tour.originalPrice}
-                    </span>
-                  </div>
-                </div>
-                
-                {/* Spacer to push buttons to bottom */}
-                <div className="flex-grow"></div>
-                
-–                {/* Action Button */}
-                <div className="mt-auto">
-                  <Button 
-                    onClick={(e) => handleBookNow(tour.id, e)}
-                    variant="secondary" 
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105"
-                  >
-                    Pesan Sekarang
-                  </Button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <TourPackagesGrid
+          tourPackages={tourPackages}
+          favorites={favorites}
+          onToggleFavorite={(id, e) => { e.stopPropagation(); toggleFavorite(id); }}
+          onCardClick={handleCardClick}
+          onBookNow={handleBookNow}
+        />
         
         {/* Load More Button */}
         <div className="text-center mt-12">

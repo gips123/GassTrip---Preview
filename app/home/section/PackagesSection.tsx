@@ -2,12 +2,23 @@
 
 import React, { useState, useEffect } from 'react';
 import { Check, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import Button from '@/components/ui/Button';
 
 const PackagesSection: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const router = useRouter();
+
+  const handleViewPackage = (id: number) => {
+    router.push(`/booking/${id}`);
+  };
+
+  const handleBookNow = (id: number) => {
+    router.push(`/booking/${id}`);
+  };
   
+  // Dummy data for packages section
   const featuredPackages = [
     {
       id: 1,
@@ -68,27 +79,27 @@ const PackagesSection: React.FC = () => {
       isFeatured: false
     },
     {
-        id: 6,
-        title: 'Paket Eksplor Bali',
-        location: 'Bali',
-        image: '/bali.jpg',
-        rating: 5,
-        included: ['Pantai Pandawa', 'Tanah Lot', 'Jimbaran Bay'],
-        price: 'Rp 6.110.000',
-        duration: '3Hari - 2Malam',
-        isFeatured: false
-      },
-      {
-        id: 7,
-        title: 'Paket Eksplor Bali',
-        location: 'Bali',
-        image: '/bali.jpg',
-        rating: 5,
-        included: ['Pantai Pandawa', 'Tanah Lot', 'Jimbaran Bay'],
-        price: 'Rp 6.110.000',
-        duration: '3Hari - 2Malam',
-        isFeatured: false
-      }
+      id: 6,
+      title: 'Paket Eksplor Lombok',
+      location: 'Lombok',
+      image: '/bromo.jpg',
+      rating: 4,
+      included: ['Gili Trawangan', 'Pantai Pink', 'Gunung Rinjani'],
+      price: 'Rp 5.500.000',
+      duration: '4Hari - 3Malam',
+      isFeatured: false
+    },
+    {
+      id: 7,
+      title: 'Paket Eksplor Yogyakarta',
+      location: 'Yogyakarta',
+      image: '/pantai.jpg',
+      rating: 5,
+      included: ['Borobudur', 'Prambanan', 'Malioboro'],
+      price: 'Rp 4.200.000',
+      duration: '3Hari - 2Malam',
+      isFeatured: false
+    }
   ];
 
   const nextSlide = () => {
@@ -151,6 +162,7 @@ const PackagesSection: React.FC = () => {
             <Button 
               variant="primary" 
               rounded="full"
+              onClick={() => handleViewPackage(pkg.id)}
               className={`bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-colors duration-300 ${
                 isFeatured ? 'px-4 py-2' : 'px-3 py-1.5 text-sm flex-1'
               }`}
@@ -160,6 +172,7 @@ const PackagesSection: React.FC = () => {
             <Button 
               variant="secondary" 
               rounded="full"
+              onClick={() => handleBookNow(pkg.id)}
               className={`bg-orange-500 hover:bg-orange-600 text-white font-semibold transition-colors duration-300 ${
                 isFeatured ? 'px-4 py-2' : 'px-3 py-1.5 text-sm flex-1'
               }`}
@@ -187,43 +200,55 @@ const PackagesSection: React.FC = () => {
         </div>
 
         {/* Featured Package Slider */}
-        <div className="mb-12 relative">
-          <div 
-            className="relative overflow-hidden rounded-xl"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
+        {featuredPackages.length > 0 ? (
+          <div className="mb-12 relative">
             <div 
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+              className="relative overflow-hidden rounded-xl"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
             >
-              {featuredPackages.map((pkg) => (
-                <div key={pkg.id} className="w-full flex-shrink-0">
-                  <PackageCard package={pkg} isFeatured={true} />
-                </div>
+              <div 
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+              >
+                {featuredPackages.map((pkg) => (
+                  <div key={pkg.id} className="w-full flex-shrink-0">
+                    <PackageCard package={pkg} isFeatured={true} />
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Dots Indicator */}
+            <div className="flex justify-center space-x-2 mt-4">
+              {featuredPackages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentSlide ? 'bg-blue-500' : 'bg-gray-300'
+                  }`}
+                />
               ))}
             </div>
           </div>
-          
-          {/* Dots Indicator */}
-          <div className="flex justify-center space-x-2 mt-4">
-            {featuredPackages.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentSlide ? 'bg-blue-500' : 'bg-gray-300'
-                }`}
-              />
+        ) : (
+          <div className="text-center py-12 mb-12">
+            <p className="text-gray-500 text-lg">No featured packages available from API</p>
+          </div>
+        )}
+        {/* Package Grid */}
+        {packages.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {packages.slice(0, 4).map((pkg) => (
+              <PackageCard key={pkg.id} package={pkg} />
             ))}
           </div>
-        </div>
-        {/* Package Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {packages.slice(0, 4).map((pkg) => (
-            <PackageCard key={pkg.id} package={pkg} />
-          ))}
-        </div>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-gray-500 text-lg">No packages available from API</p>
+          </div>
+        )}
       </div>
     </section>
   );

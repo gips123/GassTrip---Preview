@@ -6,31 +6,26 @@ import Image from 'next/image';
 import Button from '@/components/ui/Button';
 import FeatureCard from '@/components/partials/FeatureCard';
 import { Package, Phone, Plane } from 'lucide-react';
+import { HomeHeroTransformed } from '../core';
 
-const HeroSection: React.FC = () => {
+interface HeroSectionProps {
+  hero: HomeHeroTransformed;
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({ hero }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const backgroundImages = [
-    {
-      src: '/pantai.jpg',
-      alt: 'Tropical Island Paradise'
-    },
-    {
-      src: '/bromo.jpg', 
-      alt: 'Mountain Adventure'
-    },
-    {
-      src: '/bali.jpg',
-      alt: 'City Exploration'
-    }
-  ];
+  // Use background images from API data only
+  const backgroundImages = hero.backgroundImages || [];
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % backgroundImages.length);
-    }, 5000); // Change slide every 5 seconds
+    if (backgroundImages.length > 0) {
+      const interval = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % backgroundImages.length);
+      }, 5000); // Change slide every 5 seconds
 
-    return () => clearInterval(interval);
+      return () => clearInterval(interval);
+    }
   }, [backgroundImages.length]);
 
   const goToSlide = (index: number) => {
@@ -51,7 +46,7 @@ const HeroSection: React.FC = () => {
     {
       icon: <Plane className="w-8 h-8" />,
       title: "Siap Jelajah Liburanmu",
-      description: "Saatnya menikmati liburan yang tak terlupakan. Buat momen berharga"
+      description: "Saatnya menikmati liburan yang tak terlupakan. Buat setiap momen berharga"
     }
   ];
 
@@ -61,7 +56,7 @@ const HeroSection: React.FC = () => {
       <section className="relative h-screen overflow-hidden">
         {/* Background Slider */}
         <div className="absolute inset-0 overflow-hidden">
-          {backgroundImages.map((image, index) => {
+          {backgroundImages.length > 0 ? backgroundImages.map((image, index) => {
             const isActive = index === currentSlide;
             
             return (
@@ -75,17 +70,28 @@ const HeroSection: React.FC = () => {
                   animationDelay: `${index * 5}s`
                 }}
               >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover"
-                  priority={index === 0}
-                />
+                {image.url.startsWith('http') ? (
+                  <img
+                    src={image.url}
+                    alt={image.alt}
+                    className="w-full h-full object-cover"
+                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                  />
+                ) : (
+                  <Image
+                    src={image.url}
+                    alt={image.alt}
+                    fill
+                    className="object-cover"
+                    priority={index === 0}
+                  />
+                )}
                 <div className="absolute inset-0 bg-black/40" />
               </div>
             );
-          })}
+          }) : (
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600" />
+          )}
         </div>
 
         {/* Content Overlay */}
@@ -94,13 +100,12 @@ const HeroSection: React.FC = () => {
           <div className="max-w-6xl mx-auto">
             {/* Main Headline */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Pesona Yang Memikat Untuk Perjalanan Anda
+              {hero.title}
             </h1>
             
             {/* Description */}
             <p className="text-lg md:text-xl text-white mb-8 max-w-6xl mx-auto leading-relaxed">
-              Temukan keindahan tersembunyi dari destinasi-destinasi menakjubkan dalam koleksi pilihan kami! 
-              Jangan sampai terlewatkan untuk menjelajahi keajaiban yang memikat bersama kami dan ciptakan momen tak terlupakan.
+              {hero.description}
             </p>
             
             {/* CTA Button */}
@@ -117,8 +122,9 @@ const HeroSection: React.FC = () => {
         </div>
 
         {/* Navigation Dots */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3">
-          {backgroundImages.map((_, index) => (
+        {backgroundImages.length > 0 && (
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3">
+            {backgroundImages.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
@@ -129,8 +135,9 @@ const HeroSection: React.FC = () => {
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </section>
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

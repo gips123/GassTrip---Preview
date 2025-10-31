@@ -2,36 +2,49 @@
 
 import React from 'react';
 import { MapPin } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { HomeFeaturedTransformed } from '../core';
 
-const PopularSection: React.FC = () => {
+interface PopularSectionProps {
+  featured: HomeFeaturedTransformed[];
+}
+
+const PopularSection: React.FC<PopularSectionProps> = ({ featured }) => {
+  const router = useRouter();
+
+  const handleDestinationClick = (id: number) => {
+    router.push(`/booking/${id}`);
+  };
+
+  // Dummy data for popular destinations
   const destinations = [
     {
       id: 1,
       name: 'Raja Ampat',
       location: 'West Papua',
-      image: '/pantai.jpg', // Using existing beach image as placeholder
+      image: '/pantai.jpg',
       alt: 'Raja Ampat aerial view with islands and turquoise water'
     },
     {
       id: 2,
-      name: 'Key',
-      location: 'Maluku',
-      image: '/bali.jpg', // Using existing bali image as placeholder
-      alt: 'Key sandbar with turquoise water'
-    },
-    {
-      id: 3,
       name: 'Bromo',
-      location: 'Java',
+      location: 'East Java',
       image: '/bromo.jpg',
       alt: 'Mount Bromo volcano with smoke'
     },
     {
+      id: 3,
+      name: 'Bali',
+      location: 'Bali',
+      image: '/bali.jpg',
+      alt: 'Bali cultural landscape and temples'
+    },
+    {
       id: 4,
-      name: 'Maratua',
-      location: 'Kalimantan',
-      image: '/pantai.jpg', // Using existing beach image as placeholder
-      alt: 'Maratua overwater bungalows'
+      name: 'Lombok',
+      location: 'West Nusa Tenggara',
+      image: '/pantai.jpg',
+      alt: 'Lombok pristine beaches and Gili islands'
     }
   ];
 
@@ -53,6 +66,7 @@ const PopularSection: React.FC = () => {
           {destinations.map((destination) => (
             <div
               key={destination.id}
+              onClick={() => handleDestinationClick(destination.id)}
               className="relative group cursor-pointer overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2"
             >
               {/* Image */}

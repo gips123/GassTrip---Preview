@@ -29,21 +29,21 @@ const VisionMissionSection: React.FC<VisionMissionSectionProps> = ({ visionMissi
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-            {/* Vision Section - Left */}
-            <div className="bg-white lg:col-span-1 flex justify-center items-center shadow-2xl p-8 border border-gray-100 rounded-2xl">
+          <div className="space-y-16">
+            {/* Vision Section - Top */}
+            <div className="bg-white shadow-xl p-8 border border-gray-100 rounded-2xl">
               <div className="text-center">
-                <h2 className="text-2xl font-bold text-blue-900 mb-4">Visi</h2>
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <h2 className="text-2xl font-bold text-blue-900 mb-6">Visi</h2>
+                <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
                   {visionMission.vision}
                 </p>
               </div>
             </div>
 
-            {/* Mission Section - Right */}
-            <div className="lg:col-span-2">
-              <div className="mb-8">
-                <h2 className="text-2xl font-bold text-blue-900 mb-6 text-center">Misi</h2>
+            {/* Mission Section - Bottom */}
+            <div className="bg-white p-8 border border-gray-100 rounded-2xl shadow-xl">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl font-bold text-blue-900">Misi</h2>
               </div>
               <div className="bg-red-50 border border-red-200 rounded-lg p-8 text-center">
                 <div className="text-red-600 text-xl mb-2">⚠️ Missions Data Required</div>
@@ -72,23 +72,19 @@ const VisionMissionSection: React.FC<VisionMissionSectionProps> = ({ visionMissi
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-          {/* Vision Section - Left */}
-          <div className="bg-white lg:col-span-1 flex justify-center items-center shadow-2xl p-8 border border-gray-100 rounded-2xl">
+        <div className="space-y-16">
+          {/* Vision Section - Top */}
+          <div className="bg-white shadow-xl p-8 border border-gray-100 rounded-2xl">
             <div className="text-center">
-              <h2 className="text-2xl font-bold text-blue-900 mb-4">Visi</h2>
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
                 {visionMission.vision}
               </p>
             </div>
           </div>
 
-          {/* Mission Section - Right */}
-          <div className="lg:col-span-2">
-            <div className="mb-8">
-              <h2 className="text-2xl font-bold text-blue-900 mb-6 text-center">Misi</h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Mission Section - Bottom */}
+          <div className="">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {missions.map((mission, index) => (
                 <FeatureCard
                   key={mission.id}

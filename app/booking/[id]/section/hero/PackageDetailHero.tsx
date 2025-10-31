@@ -15,13 +15,13 @@ const PackageDetailHero: React.FC<PackageDetailHeroProps> = ({ packageId }) => {
   // Mock data - in real app, fetch from API
   const packageData = {
     id: packageId,
-    title: "Bali Adventure Package",
-    subtitle: "3 Days 2 Nights",
+    title: "Paket Petualangan Bali",
+    subtitle: "3 Hari 2 Malam",
     location: "Bali, Indonesia",
     rating: 4.8,
     reviews: 124,
-    duration: "3 Days 2 Nights",
-    groupSize: "2-8 People",
+    duration: "3 Hari 2 Malam",
+    groupSize: "2-8 Orang",
     price: "Rp6.188.000",
     originalPrice: "Rp7.500.000",
     discount: 17,
@@ -33,10 +33,10 @@ const PackageDetailHero: React.FC<PackageDetailHeroProps> = ({ packageId }) => {
       "/bromo.jpg"
     ],
     highlights: [
-      "Visit Tanah Lot Temple",
-      "Explore Ubud Rice Terraces", 
-      "Sunset at Jimbaran Beach",
-      "Traditional Balinese Cooking Class"
+      "Kunjungi Pura Tanah Lot",
+      "Jelajahi Teras Sawah Ubud", 
+      "Matahari Terbenam di Pantai Jimbaran",
+      "Kelas Memasak Tradisional Bali"
     ]
   };
 
@@ -163,7 +163,7 @@ const PackageDetailHero: React.FC<PackageDetailHeroProps> = ({ packageId }) => {
             
             {/* Highlights */}
             <div className="mt-6">
-              <h3 className="text-lg font-semibold mb-3">Package Highlights:</h3>
+              <h3 className="text-lg font-semibold mb-3">Sorotan Paket:</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {packageData.highlights.map((highlight, index) => (
                   <div key={index} className="flex items-center text-white/90">

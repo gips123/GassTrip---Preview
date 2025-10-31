@@ -14,57 +14,57 @@ const PackageDetailRecommendations: React.FC<PackageDetailRecommendationsProps> 
   const recommendations = [
     {
       id: 2,
-      title: "Bromo Sunrise Experience",
-      location: "Bromo, East Java",
-      price: "Rp3.797.000",
-      originalPrice: "Rp4.200.000",
+      title: "Paket Bromo Sunrise",
+      location: "Bromo, Jawa Timur",
+      price: "Rp2.500.000",
+      originalPrice: "Rp3.000.000",
       image: "/bromo.jpg",
-      duration: "3 Days 2 Nights",
-      rating: 4.9,
+      duration: "2 Hari 1 Malam",
+      rating: 4.7,
       reviews: 89,
-      groupSize: "2-6 People",
-      discount: 10,
+      groupSize: "2-6 Orang",
+      discount: 17,
       isPopular: true
     },
     {
       id: 3,
-      title: "Flores Island Discovery",
-      location: "Flores, NTT",
-      price: "Rp3.889.000",
-      originalPrice: "Rp4.500.000",
-      image: "/pantai.jpg",
-      duration: "2 Days 1 Night",
-      rating: 4.7,
-      reviews: 67,
-      groupSize: "2-4 People",
-      discount: 14,
+      title: "Paket Budaya Yogyakarta",
+      location: "Yogyakarta, Jawa Tengah",
+      price: "Rp3.200.000",
+      originalPrice: "Rp3.800.000",
+      image: "/bali.jpg",
+      duration: "3 Hari 2 Malam",
+      rating: 4.6,
+      reviews: 156,
+      groupSize: "2-8 Orang",
+      discount: 16,
       isPopular: false
     },
     {
       id: 4,
-      title: "Kalimantan Wildlife",
-      location: "Kalimantan",
-      price: "Rp5.880.000",
-      originalPrice: "Rp6.800.000",
-      image: "/bali.jpg",
-      duration: "4 Days 3 Nights",
-      rating: 4.6,
-      reviews: 45,
-      groupSize: "2-6 People",
-      discount: 14,
-      isPopular: false
+      title: "Paket Petualangan Lombok",
+      location: "Lombok, Nusa Tenggara Barat",
+      price: "Rp4.500.000",
+      originalPrice: "Rp5.200.000",
+      image: "/pantai.jpg",
+      duration: "4 Hari 3 Malam",
+      rating: 4.9,
+      reviews: 203,
+      groupSize: "2-6 Orang",
+      discount: 13,
+      isPopular: true
     },
     {
       id: 5,
-      title: "Kawah Ijen Blue Fire",
-      location: "Banyuwangi, East Java",
+      title: "Paket Kawah Ijen Blue Fire",
+      location: "Banyuwangi, Jawa Timur",
       price: "Rp4.399.000",
       originalPrice: "Rp5.200.000",
       image: "/bromo.jpg",
-      duration: "2 Days 1 Night",
+      duration: "2 Hari 1 Malam",
       rating: 4.8,
       reviews: 78,
-      groupSize: "2-4 People",
+      groupSize: "2-4 Orang",
       discount: 15,
       isPopular: true
     }
@@ -75,10 +75,10 @@ const PackageDetailRecommendations: React.FC<PackageDetailRecommendationsProps> 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            You Might Also Like
+            Anda Mungkin Juga Menyukai
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover more amazing destinations and experiences across Indonesia
+            Temukan lebih banyak destinasi dan pengalaman menakjubkan di seluruh Indonesia
           </p>
         </div>
 
@@ -97,17 +97,7 @@ const PackageDetailRecommendations: React.FC<PackageDetailRecommendationsProps> 
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 
-                {/* Badges */}
-                <div className="absolute top-4 left-4 flex flex-col gap-2">
-                  {packageItem.isPopular && (
-                    <span className="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                      POPULAR
-                    </span>
-                  )}
-                  <span className="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                    -{packageItem.discount}%
-                  </span>
-                </div>
+  
                 
                 {/* Favorite Button */}
                 <button className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 shadow-lg">
@@ -175,13 +165,13 @@ const PackageDetailRecommendations: React.FC<PackageDetailRecommendationsProps> 
                     variant="primary" 
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-3 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm"
                   >
-                    View Details
+                    Lihat Detail
                   </Button>
                   <Button 
                     variant="secondary" 
                     className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-3 rounded-lg transition-all duration-300 text-sm"
                   >
-                    Book Now
+                    Pesan Sekarang
                   </Button>
                 </div>
               </div>
@@ -195,7 +185,7 @@ const PackageDetailRecommendations: React.FC<PackageDetailRecommendationsProps> 
             variant="secondary"
             className="bg-white hover:bg-gray-50 text-gray-700 border-2 border-gray-200 hover:border-gray-300 font-semibold px-8 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105"
           >
-            View All Packages
+            Lihat Semua Paket
           </Button>
         </div>
       </div>

@@ -21,8 +21,8 @@ const PackageDetailReviews: React.FC<PackageDetailReviewsProps> = ({ packageId }
       },
       rating: 5,
       date: "2024-01-15",
-      title: "Amazing Bali Experience!",
-      content: "This tour exceeded all my expectations. The guide was knowledgeable, the itinerary was perfect, and the accommodations were excellent. The rice terraces were absolutely breathtaking, and the cooking class was so much fun!",
+      title: "Pengalaman Bali yang Menakjubkan!",
+      content: "Tur ini melampaui semua harapan saya. Pemandunya berpengetahuan luas, itinerari sempurna, dan akomodasi sangat baik. Teras sawah benar-benar memukau, dan kelas memasak sangat menyenangkan!",
       helpful: 12,
       verified: true
     },
@@ -35,8 +35,8 @@ const PackageDetailReviews: React.FC<PackageDetailReviewsProps> = ({ packageId }
       },
       rating: 4,
       date: "2024-01-10",
-      title: "Great tour with minor issues",
-      content: "Overall a very good experience. The guide was friendly and the sights were beautiful. The only downside was that the Mount Batur trek was quite challenging for beginners, but the sunrise view was worth it.",
+      title: "Tur bagus dengan sedikit masalah",
+      content: "Secara keseluruhan pengalaman yang sangat baik. Pemandunya ramah dan pemandangannya indah. Satu-satunya kelemahan adalah trek Gunung Batur cukup menantang untuk pemula, tapi pemandangan matahari terbitnya sepadan.",
       helpful: 8,
       verified: true
     },
@@ -49,8 +49,8 @@ const PackageDetailReviews: React.FC<PackageDetailReviewsProps> = ({ packageId }
       },
       rating: 5,
       date: "2024-01-05",
-      title: "Perfect family trip",
-      content: "Traveled with my family including two teenagers. Everyone had a great time! The activities were well-paced and suitable for all ages. The traditional Balinese lunch was delicious and the temple visits were very educational.",
+      title: "Perjalanan keluarga yang sempurna",
+      content: "Bepergian dengan keluarga termasuk dua remaja. Semua orang bersenang-senang! Aktivitasnya teratur dengan baik dan cocok untuk semua usia. Makan siang tradisional Bali lezat dan kunjungan pura sangat mendidik.",
       helpful: 15,
       verified: true
     },
@@ -63,8 +63,8 @@ const PackageDetailReviews: React.FC<PackageDetailReviewsProps> = ({ packageId }
       },
       rating: 3,
       date: "2023-12-28",
-      title: "Good but could be better",
-      content: "The tour was good overall, but I felt rushed at some locations. The guide was knowledgeable but sometimes seemed to be in a hurry. The accommodation was decent but not as luxurious as expected.",
+      title: "Bagus tapi bisa lebih baik",
+      content: "Tur secara keseluruhan bagus, tapi saya merasa terburu-buru di beberapa lokasi. Pemandunya berpengetahuan tapi kadang terlihat terburu-buru. Akomodasi cukup baik tapi tidak sel mewah seperti yang diharapkan.",
       helpful: 3,
       verified: true
     },
@@ -77,8 +77,8 @@ const PackageDetailReviews: React.FC<PackageDetailReviewsProps> = ({ packageId }
       },
       rating: 5,
       date: "2023-12-20",
-      title: "Unforgettable experience!",
-      content: "This was one of the best tours I've ever taken. The guide was exceptional, the itinerary was perfect, and every activity was well-organized. The sunset at Jimbaran Beach was magical. Highly recommended!",
+      title: "Pengalaman yang tak terlupakan!",
+      content: "Ini adalah salah satu tur terbaik yang pernah saya ikuti. Pemandunya luar biasa, itinerari sempurna, dan setiap aktivitas terorganisir dengan baik. Matahari terbenam di Pantai Jimbaran sangat magis. Sangat direkomendasikan!",
       helpful: 20,
       verified: true
     }
@@ -100,7 +100,7 @@ const PackageDetailReviews: React.FC<PackageDetailReviewsProps> = ({ packageId }
 
   return (
     <div className="bg-white rounded-2xl shadow-lg p-8">
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Customer Reviews</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">Ulasan Pelanggan</h2>
       
       {/* Rating Overview */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -119,14 +119,14 @@ const PackageDetailReviews: React.FC<PackageDetailReviewsProps> = ({ packageId }
                   />
                 ))}
               </div>
-              <p className="text-gray-600">Based on {reviews.length} reviews</p>
+              <p className="text-gray-600">Berdasarkan {reviews.length} ulasan</p>
             </div>
           </div>
         </div>
 
         {/* Rating Breakdown */}
         <div>
-          <h3 className="font-bold text-gray-900 mb-4">Rating Breakdown</h3>
+          <h3 className="font-bold text-gray-900 mb-4">Rincian Rating</h3>
           <div className="space-y-2">
             {[5, 4, 3, 2, 1].map((rating) => (
               <div key={rating} className="flex items-center">
@@ -155,7 +155,7 @@ const PackageDetailReviews: React.FC<PackageDetailReviewsProps> = ({ packageId }
               : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
           }`}
         >
-          All Reviews
+          Semua Ulasan
         </button>
         {[5, 4, 3, 2, 1].map((rating) => (
           <button
@@ -167,7 +167,7 @@ const PackageDetailReviews: React.FC<PackageDetailReviewsProps> = ({ packageId }
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
             }`}
           >
-            {rating} Star{rating > 1 ? 's' : ''}
+            {rating} Bintang
           </button>
         ))}
       </div>
@@ -189,7 +189,7 @@ const PackageDetailReviews: React.FC<PackageDetailReviewsProps> = ({ packageId }
                     <h4 className="font-bold text-gray-900">{review.user.name}</h4>
                     {review.verified && (
                       <span className="ml-2 bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
-                        Verified
+                        Terverifikasi
                       </span>
                     )}
                   </div>
@@ -230,11 +230,11 @@ const PackageDetailReviews: React.FC<PackageDetailReviewsProps> = ({ packageId }
               <div className="flex items-center justify-between">
                 <button className="flex items-center text-sm text-gray-500 hover:text-blue-600 transition-colors">
                   <ThumbsUp className="w-4 h-4 mr-1" />
-                  Helpful ({review.helpful})
+                  Membantu ({review.helpful})
                 </button>
                 <button className="flex items-center text-sm text-gray-500 hover:text-blue-600 transition-colors">
                   <MessageCircle className="w-4 h-4 mr-1" />
-                  Reply
+                  Balas
                 </button>
               </div>
             </div>
@@ -245,7 +245,7 @@ const PackageDetailReviews: React.FC<PackageDetailReviewsProps> = ({ packageId }
       {/* Load More Reviews */}
       <div className="text-center mt-8">
         <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors duration-300">
-          Load More Reviews
+          Muat Lebih Banyak Ulasan
         </button>
       </div>
     </div>

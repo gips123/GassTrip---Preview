@@ -13,10 +13,9 @@ const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center mb-6">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
-                <Plane className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold">TravelHub</h3>
+              <Image src="/gasstrip-logo.png" alt="GassTrip Logo" width={80} height={80} />
+
+              <h3 className="text-2xl font-bold">GassTrip</h3>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
               Jelajahi dunia dengan pengalaman tak terlupakan. Kami menghadirkan petualangan terbaik 
@@ -115,7 +114,7 @@ const Footer: React.FC = () => {
               
               <div className="flex items-center">
                 <Mail className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
-                <a href="mailto:info@travelhub.com" className="text-gray-300 hover:text-white transition-colors">
+                <a href="mailto:info@.com" className="text-gray-300 hover:text-white transition-colors">
                   admin@gasstrip.id
                 </a>
               </div>
@@ -153,7 +152,7 @@ const Footer: React.FC = () => {
             </div>
             
             <div className="text-sm text-gray-400">
-              <p>© 2024 TravelHub. Semua hak dilindungi.</p>
+              <p>© 2024 GassTrip. Semua hak dilindungi.</p>
             </div>
           </div>
         </div>
