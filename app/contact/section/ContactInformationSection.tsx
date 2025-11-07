@@ -86,12 +86,14 @@ const ContactInformationSection: React.FC<ContactInformationSectionProps> = ({ i
           <div className="space-y-6">
             {/* Map Section */}
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 overflow-hidden">
-              <div className="relative h-80 w-full">
-                <img 
-                  src="/maps.png" 
-                  alt="Lokasi Peta" 
-                  className="w-full h-full object-cover"
-                />
+              <div className="relative h-80 flex items-center justify-center bg-gray-100">
+                <div className="text-center p-8">
+                  <div className="text-gray-500 text-xl mb-2">🗺️</div>
+                  <div className="text-gray-600 font-semibold mb-2">Map Data Required</div>
+                  <p className="text-gray-500 text-sm">
+                    Map image is not available from Strapi API. Please add map data to Contact page in Strapi.
+                  </p>
+                </div>
               </div>
             </div>
 
