@@ -261,6 +261,110 @@ export class StrapiService {
     }
   }
 
+  static async getMicePageData() {
+    const mergeMiceResponses = (
+      heroResponse: any,
+      servicesResponse: any,
+      packagesResponse: any,
+      whyUsResponse: any,
+      registerResponse: any,
+      testimonialsResponse: any,
+      faqResponse: any,
+      footerCtaResponse: any
+    ) => ({
+      id: heroResponse.data.id,
+      documentId: heroResponse.data.documentId,
+      createdAt: heroResponse.data.createdAt,
+      updatedAt: heroResponse.data.updatedAt,
+      publishedAt: heroResponse.data.publishedAt,
+      MiceHero: heroResponse.data.MiceHero,
+      MiceServices: servicesResponse.data.MiceServices,
+      MicePackages: packagesResponse.data.MicePackages,
+      MiceWhyUs: whyUsResponse.data.MiceWhyUs,
+      MiceRegister: registerResponse.data.MiceRegister,
+      MiceTestimonials: testimonialsResponse.data.MiceTestimonials,
+      MiceFaq: faqResponse.data.MiceFaq,
+      MiceFooterCta: footerCtaResponse.data.MiceFooterCta,
+    });
+
+    const fetchFromFakeDb = async () => {
+      const [
+        heroResponse,
+        servicesResponse,
+        packagesResponse,
+        whyUsResponse,
+        registerResponse,
+        testimonialsResponse,
+        faqResponse,
+        footerCtaResponse,
+      ] = await Promise.all([
+        fakeDbClient.get('/mice?populate[MiceHero][populate]=*'),
+        fakeDbClient.get('/mice?populate[MiceServices][populate]=*'),
+        fakeDbClient.get('/mice?populate[MicePackages][populate]=*'),
+        fakeDbClient.get('/mice?populate[MiceWhyUs][populate]=*'),
+        fakeDbClient.get('/mice?populate[MiceRegister][populate]=*'),
+        fakeDbClient.get('/mice?populate[MiceTestimonials][populate]=*'),
+        fakeDbClient.get('/mice?populate[MiceFaq][populate]=*'),
+        fakeDbClient.get('/mice?populate[MiceFooterCta][populate]=*'),
+      ]);
+
+      return mergeMiceResponses(
+        heroResponse,
+        servicesResponse,
+        packagesResponse,
+        whyUsResponse,
+        registerResponse,
+        testimonialsResponse,
+        faqResponse,
+        footerCtaResponse
+      );
+    };
+
+    try {
+      if (shouldUseFakeDb()) {
+        return fetchFromFakeDb();
+      }
+
+      const [
+        heroResponse,
+        servicesResponse,
+        packagesResponse,
+        whyUsResponse,
+        registerResponse,
+        testimonialsResponse,
+        faqResponse,
+        footerCtaResponse,
+      ] = await Promise.all([
+        strapiClient.get<any>('/mice?populate[MiceHero][populate]=*'),
+        strapiClient.get<any>('/mice?populate[MiceServices][populate]=*'),
+        strapiClient.get<any>('/mice?populate[MicePackages][populate]=*'),
+        strapiClient.get<any>('/mice?populate[MiceWhyUs][populate]=*'),
+        strapiClient.get<any>('/mice?populate[MiceRegister][populate]=*'),
+        strapiClient.get<any>('/mice?populate[MiceTestimonials][populate]=*'),
+        strapiClient.get<any>('/mice?populate[MiceFaq][populate]=*'),
+        strapiClient.get<any>('/mice?populate[MiceFooterCta][populate]=*'),
+      ]);
+
+      return mergeMiceResponses(
+        heroResponse,
+        servicesResponse,
+        packagesResponse,
+        whyUsResponse,
+        registerResponse,
+        testimonialsResponse,
+        faqResponse,
+        footerCtaResponse
+      );
+    } catch (error) {
+      console.warn('Failed to fetch from Strapi, falling back to fake db:', error);
+      try {
+        return fetchFromFakeDb();
+      } catch (fallbackError) {
+        throw new Error(`Failed to fetch MICE page data: ${fallbackError}`);
+      }
+    }
+  }
+
   static async getPackagePageData() {
     try {
       if (shouldUseFakeDb()) {

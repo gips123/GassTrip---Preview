@@ -1,0 +1,46 @@
+{
+  "data": {
+    "id": 1,
+    "documentId": "mice-services-001",
+    "createdAt": "2025-10-28T00:00:00.000Z",
+    "updatedAt": "2025-10-28T00:00:00.000Z",
+    "publishedAt": "2025-10-28T00:00:00.000Z",
+    "MiceServices": {
+      "id": 1,
+      "SectionLabel": "Layanan Kami",
+      "Title": "Solusi Lengkap untuk Setiap Kebutuhan",
+      "Description": "Dari pertemuan skala kecil hingga konferensi internasional, kami siap membantu Anda.",
+      "Services": [
+        {
+          "id": 1,
+          "Icon": "Handshake",
+          "Title": "Meetings & Workshop",
+          "Description": "Fasilitas rapat korporat di venue strategis dengan dukungan teknis AV, konsumsi, dan akomodasi.",
+          "Tag": "10–500 peserta"
+        },
+        {
+          "id": 2,
+          "Icon": "Trophy",
+          "Title": "Incentive Trip",
+          "Description": "Program reward eksklusif bagi karyawan terbaik. Destinasi domestik dan internasional yang menakjubkan.",
+          "Tag": "Group & personalized"
+        },
+        {
+          "id": 3,
+          "Icon": "Mic",
+          "Title": "Conference & Seminar",
+          "Description": "Konferensi profesional dengan dukungan MC, live streaming, dokumentasi foto & video, serta katering.",
+          "Tag": "Skala nasional & internasional"
+        },
+        {
+          "id": 4,
+          "Icon": "Landmark",
+          "Title": "Exhibition & Pameran",
+          "Description": "Manajemen pameran dari desain booth, logistik, transportasi peserta, hingga laporan evaluasi event.",
+          "Tag": "B2B & B2C events"
+        }
+      ]
+    }
+  },
+  "meta": {}
+}

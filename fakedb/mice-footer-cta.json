@@ -1,0 +1,20 @@
+{
+  "data": {
+    "id": 1,
+    "documentId": "mice-footer-cta-001",
+    "createdAt": "2025-10-28T00:00:00.000Z",
+    "updatedAt": "2025-10-28T00:00:00.000Z",
+    "publishedAt": "2025-10-28T00:00:00.000Z",
+    "MiceFooterCta": {
+      "id": 1,
+      "Title": "Siap Merancang Event Terbaik?",
+      "Description": "Ribuan perusahaan telah mempercayakan event korporat mereka kepada GassTrip. Giliran Anda!",
+      "PrimaryButtonLabel": "Daftar Sekarang — Gratis",
+      "PrimaryButtonHref": "#register",
+      "SecondaryButtonLabel": "Chat WhatsApp",
+      "SecondaryButtonIcon": "MessageCircle",
+      "SecondaryButtonHref": "https://wa.me/6281317902930"
+    }
+  },
+  "meta": {}
+}

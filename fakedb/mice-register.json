@@ -1,0 +1,76 @@
+{
+  "data": {
+    "id": 1,
+    "documentId": "mice-register-001",
+    "createdAt": "2025-10-28T00:00:00.000Z",
+    "updatedAt": "2025-10-28T00:00:00.000Z",
+    "publishedAt": "2025-10-28T00:00:00.000Z",
+    "MiceRegister": {
+      "id": 1,
+      "SectionLabel": "Registrasi",
+      "Title": "Mulai Rencanakan Event Anda",
+      "Description": "Isi form di bawah ini dan tim kami akan menghubungi Anda dalam 1×24 jam kerja.",
+      "FormTitle": "Registrasi",
+      "FormSubtitle": "Konsultasi pertama 100% gratis — tanpa komitmen awal",
+      "Badges": [
+        { "id": 1, "Icon": "Shield", "Label": "Data Aman" },
+        { "id": 2, "Icon": "Check", "Label": "Gratis Konsultasi" },
+        { "id": 3, "Icon": "Zap", "Label": "Respon 24 Jam" }
+      ],
+      "CompanySectionTitle": "Data Perusahaan",
+      "EventSectionTitle": "Detail Kebutuhan Event",
+      "SubmitButtonLabel": "Kirim & Mulai Konsultasi Gratis",
+      "PrivacyNote": "Data Anda aman. Kami tidak akan membagikan informasi kepada pihak ketiga.",
+      "AgreementText": "Saya menyetujui Syarat & Ketentuan dan Kebijakan Privasi GassTrip. Data perusahaan saya akan digunakan hanya untuk keperluan konsultasi dan penawaran MICE.",
+      "ModalTitle": "Registrasi Berhasil!",
+      "ModalDescription": "Terima kasih telah mendaftarkan kebutuhan MICE Anda. Tim GassTrip akan segera menghubungi Anda.",
+      "ModalRefNote": "Simpan nomor referensi ini untuk follow-up",
+      "ModalFollowUp": "Cek email dan WhatsApp Anda dalam 1×24 jam kerja.",
+      "ModalCloseLabel": "Tutup",
+      "ValidationMessage": "Mohon lengkapi semua field yang wajib diisi (ditandai *) dan pilih jenis acara.",
+      "IndustryOptions": [
+        "Manufaktur & Industri",
+        "Keuangan & Perbankan",
+        "Teknologi & IT",
+        "Farmasi & Kesehatan",
+        "Retail & FMCG",
+        "Properti & Konstruksi",
+        "Pendidikan",
+        "Pemerintahan",
+        "Lainnya"
+      ],
+      "EventTypes": [
+        { "id": "et-meeting", "Value": "Meeting / Rapat", "Label": "Meeting", "Icon": "Handshake" },
+        { "id": "et-incentive", "Value": "Incentive Trip", "Label": "Incentive Trip", "Icon": "Trophy" },
+        { "id": "et-conference", "Value": "Conference", "Label": "Conference", "Icon": "Mic" },
+        { "id": "et-exhibition", "Value": "Exhibition", "Label": "Exhibition", "Icon": "Landmark" },
+        { "id": "et-outing", "Value": "Outing & Team Building", "Label": "Outing", "Icon": "Tent" },
+        { "id": "et-other", "Value": "Lainnya", "Label": "Lainnya", "Icon": "Sparkles" }
+      ],
+      "ParticipantOptions": [
+        "10–30 orang",
+        "30–50 orang",
+        "50–100 orang",
+        "100–300 orang",
+        "300–500 orang",
+        "500+ orang"
+      ],
+      "PackageOptions": [
+        "Starter Basic (mulai Rp 15 Juta)",
+        "Business Professional (mulai Rp 35 Juta)",
+        "Enterprise Premium (Custom)",
+        "Belum tahu, butuh rekomendasi"
+      ],
+      "DurationOptions": ["1 hari", "2 hari 1 malam", "3 hari 2 malam", "4 hari 3 malam", "5+ hari"],
+      "BudgetOptions": [
+        "Di bawah Rp 25 Juta",
+        "Rp 25–50 Juta",
+        "Rp 50–100 Juta",
+        "Rp 100–250 Juta",
+        "Di atas Rp 250 Juta",
+        "Fleksibel / tergantung proposal"
+      ]
+    }
+  },
+  "meta": {}
+}

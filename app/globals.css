@@ -10,6 +10,18 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-poppins);
   --font-mono: var(--font-poppins);
+
+  --color-mice-navy: #0a1628;
+  --color-mice-navy-mid: #1a3a5c;
+  --color-mice-gold: #f57723;
+  --color-mice-gold-light: #ee4a09;
+  --color-mice-gold-dark: #e8541a;
+  --color-mice-off-white: #f8f7f4;
+  --color-mice-gray-100: #f1efe8;
+  --color-mice-gray-200: #e4e2d8;
+  --color-mice-gray-500: #888780;
+  --color-mice-text: #1a1a18;
+  --color-mice-text-muted: #6b6960;
 }
 
 @media (prefers-color-scheme: dark) {

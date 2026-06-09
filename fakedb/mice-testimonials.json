@@ -1,0 +1,38 @@
+{
+  "data": {
+    "id": 1,
+    "documentId": "mice-testimonials-001",
+    "createdAt": "2025-10-28T00:00:00.000Z",
+    "updatedAt": "2025-10-28T00:00:00.000Z",
+    "publishedAt": "2025-10-28T00:00:00.000Z",
+    "MiceTestimonials": {
+      "id": 1,
+      "SectionLabel": "Testimonial",
+      "Title": "Dipercaya oleh 200+ Perusahaan",
+      "Items": [
+        {
+          "id": 1,
+          "Initials": "SR",
+          "Text": "\"Tim GassTrip sangat profesional. Acara gathering tahunan kami untuk 150 karyawan berjalan lancar tanpa hambatan apapun. Pasti kami gunakan lagi!\"",
+          "Name": "Siti Rahayu",
+          "Role": "HRD Manager — PT. Maju Bersama"
+        },
+        {
+          "id": 2,
+          "Initials": "BW",
+          "Text": "\"Incentive trip ke Bali untuk 50 sales terbaik kami terorganisir luar biasa. Detail kecil pun diperhatikan. Highly recommended untuk B2B travel!\"",
+          "Name": "Budi Wijaya",
+          "Role": "Sales Director — PT. Karya Nusantara"
+        },
+        {
+          "id": 3,
+          "Initials": "DL",
+          "Text": "\"Konferensi nasional kami dengan 300 peserta ditangani dengan excellent. Budget sesuai, vendor terpilih, dan dokumentasi sangat memuaskan.\"",
+          "Name": "Dewi Lestari",
+          "Role": "Event Manager — Yayasan Pendidikan Maju"
+        }
+      ]
+    }
+  },
+  "meta": {}
+}

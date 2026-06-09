@@ -141,7 +141,15 @@ class FakeDbClient {
       '/tour-packages?populate=*': 'tour-packages.json',
       '/contact?populate[ContactHero][populate]=*': 'contact-hero.json',
       '/contact?populate[Information][populate]=*': 'contact-information.json',
-      '/Package?populate[PackageHero][populate]=*': 'package-hero.json'
+      '/Package?populate[PackageHero][populate]=*': 'package-hero.json',
+      '/mice?populate[MiceHero][populate]=*': 'mice-hero.json',
+      '/mice?populate[MiceServices][populate]=*': 'mice-services.json',
+      '/mice?populate[MicePackages][populate]=*': 'mice-packages.json',
+      '/mice?populate[MiceWhyUs][populate]=*': 'mice-why-us.json',
+      '/mice?populate[MiceRegister][populate]=*': 'mice-register.json',
+      '/mice?populate[MiceTestimonials][populate]=*': 'mice-testimonials.json',
+      '/mice?populate[MiceFaq][populate]=*': 'mice-faq.json',
+      '/mice?populate[MiceFooterCta][populate]=*': 'mice-footer-cta.json'
     };
 
     const filename = endpointMap[endpoint];

@@ -1,0 +1,29 @@
+{
+  "data": {
+    "id": 1,
+    "documentId": "mice-hero-001",
+    "createdAt": "2025-10-28T00:00:00.000Z",
+    "updatedAt": "2025-10-28T00:00:00.000Z",
+    "publishedAt": "2025-10-28T00:00:00.000Z",
+    "MiceHero": {
+      "id": 1,
+      "BadgeIcon": "Briefcase",
+      "Badge": "B2B Corporate Solutions",
+      "TitleLine1": "Solusi MICE Profesional",
+      "TitleLine2": "untuk Bisnis Anda",
+      "TitleHighlight": "MICE",
+      "Description": "Meetings, Incentives, Conferences & Exhibitions — GassTrip menghadirkan layanan perjalanan korporat end-to-end yang terencana, berkesan, dan efisien.",
+      "PrimaryButtonLabel": "Konsultasi Gratis",
+      "PrimaryButtonHref": "#register",
+      "SecondaryButtonLabel": "Lihat Paket",
+      "SecondaryButtonHref": "#paket",
+      "Stats": [
+        { "id": 1, "Value": "200+", "Label": "Klien korporat aktif" },
+        { "id": 2, "Value": "50+", "Label": "Destinasi pilihan" },
+        { "id": 3, "Value": "5 Thn", "Label": "Pengalaman MICE" },
+        { "id": 4, "Value": "98%", "Label": "Tingkat kepuasan" }
+      ]
+    }
+  },
+  "meta": {}
+}

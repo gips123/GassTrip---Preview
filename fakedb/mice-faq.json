@@ -1,0 +1,42 @@
+{
+  "data": {
+    "id": 1,
+    "documentId": "mice-faq-001",
+    "createdAt": "2025-10-28T00:00:00.000Z",
+    "updatedAt": "2025-10-28T00:00:00.000Z",
+    "publishedAt": "2025-10-28T00:00:00.000Z",
+    "MiceFaq": {
+      "id": 1,
+      "SectionLabel": "FAQ",
+      "Title": "Pertanyaan yang Sering Diajukan",
+      "Items": [
+        {
+          "id": 1,
+          "Question": "Berapa lama proses proposal setelah submit form?",
+          "Answer": "Tim kami akan menghubungi Anda dalam 1×24 jam kerja setelah form diterima. Proposal detail akan kami kirimkan dalam 2–3 hari kerja setelah konsultasi awal."
+        },
+        {
+          "id": 2,
+          "Question": "Apakah ada biaya untuk konsultasi awal?",
+          "Answer": "Tidak sama sekali. Konsultasi pertama 100% gratis dan tanpa komitmen. Kami akan memberikan rekomendasi terbaik sesuai kebutuhan dan budget Anda."
+        },
+        {
+          "id": 3,
+          "Question": "Apakah paket bisa dikustomisasi?",
+          "Answer": "Ya, seluruh paket kami fleksibel dan dapat disesuaikan dengan kebutuhan spesifik perusahaan Anda — mulai dari destinasi, durasi, fasilitas, hingga tema acara."
+        },
+        {
+          "id": 4,
+          "Question": "Destinasi apa saja yang tersedia?",
+          "Answer": "Kami melayani 50+ destinasi domestik (Bali, Yogyakarta, Lombok, Raja Ampat, dll.) dan internasional (Singapura, Malaysia, Thailand, Jepang, Eropa, dll.)."
+        },
+        {
+          "id": 5,
+          "Question": "Apakah GassTrip menyediakan invoice resmi untuk kebutuhan perusahaan?",
+          "Answer": "Tentu. Kami menyediakan invoice resmi, kuitansi, dan dokumen pendukung lainnya yang dibutuhkan untuk proses reimbursement atau administrasi perusahaan Anda."
+        }
+      ]
+    }
+  },
+  "meta": {}
+}

@@ -1,0 +1,80 @@
+{
+  "data": {
+    "id": 1,
+    "documentId": "mice-packages-001",
+    "createdAt": "2025-10-28T00:00:00.000Z",
+    "updatedAt": "2025-10-28T00:00:00.000Z",
+    "publishedAt": "2025-10-28T00:00:00.000Z",
+    "MicePackages": {
+      "id": 1,
+      "SectionLabel": "Paket MICE",
+      "Title": "Pilih Paket Sesuai Kebutuhan",
+      "Description": "Harga transparan, layanan premium. Semua paket dapat dikustomisasi sesuai permintaan Anda.",
+      "Packages": [
+        {
+          "id": 1,
+          "Tier": "Starter",
+          "Name": "Basic",
+          "Price": "Rp 15 Juta",
+          "PriceSub": "/grup",
+          "Featured": false,
+          "Popular": false,
+          "ButtonLabel": "Pilih Paket Ini",
+          "ButtonVariant": "outline",
+          "Features": [
+            "10–30 peserta",
+            "Transportasi bus AC",
+            "Hotel bintang 3",
+            "Full board konsumsi",
+            "Koordinator lapangan",
+            "Dokumentasi foto"
+          ]
+        },
+        {
+          "id": 2,
+          "Tier": "Business",
+          "Name": "Professional",
+          "Price": "Rp 35 Juta",
+          "PriceSub": "/grup",
+          "Featured": true,
+          "Popular": true,
+          "PopularLabel": "Terpopuler",
+          "ButtonLabel": "Pilih Paket Ini",
+          "ButtonVariant": "gold",
+          "Features": [
+            "30–100 peserta",
+            "Transportasi VIP",
+            "Hotel bintang 4 + venue meeting",
+            "Full board + coffee break",
+            "Event coordinator full",
+            "Foto & video profesional",
+            "Souvenir eksklusif",
+            "Report pasca event"
+          ]
+        },
+        {
+          "id": 3,
+          "Tier": "Enterprise",
+          "Name": "Premium",
+          "Price": "Custom",
+          "PriceSub": "hubungi kami",
+          "Featured": false,
+          "Popular": false,
+          "ButtonLabel": "Request Penawaran",
+          "ButtonVariant": "outline",
+          "Features": [
+            "100–1000+ peserta",
+            "Full event management",
+            "Hotel bintang 5",
+            "MC & hiburan profesional",
+            "Live streaming & media",
+            "Gala dinner",
+            "Team building custom",
+            "Dedicated account manager"
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {}
+}

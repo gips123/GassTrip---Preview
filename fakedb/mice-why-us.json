@@ -1,0 +1,42 @@
+{
+  "data": {
+    "id": 1,
+    "documentId": "mice-why-us-001",
+    "createdAt": "2025-10-28T00:00:00.000Z",
+    "updatedAt": "2025-10-28T00:00:00.000Z",
+    "publishedAt": "2025-10-28T00:00:00.000Z",
+    "MiceWhyUs": {
+      "id": 1,
+      "SectionLabel": "Mengapa GassTrip?",
+      "Title": "Partner Terpercaya untuk Event Korporat Anda",
+      "Description": "Kami tidak hanya menyediakan layanan — kami memastikan setiap detail event Anda berjalan sempurna.",
+      "Items": [
+        {
+          "id": 1,
+          "Icon": "Target",
+          "Title": "Dedicated Manager",
+          "Description": "Satu PIC khusus untuk keseluruhan event Anda"
+        },
+        {
+          "id": 2,
+          "Icon": "Zap",
+          "Title": "Respon Cepat",
+          "Description": "Konfirmasi dalam 1×24 jam, eksekusi tepat waktu"
+        },
+        {
+          "id": 3,
+          "Icon": "Lock",
+          "Title": "Harga Transparan",
+          "Description": "Penawaran detail tanpa biaya tersembunyi"
+        },
+        {
+          "id": 4,
+          "Icon": "Globe",
+          "Title": "Jaringan Luas",
+          "Description": "50+ destinasi domestik dan internasional"
+        }
+      ]
+    }
+  },
+  "meta": {}
+}

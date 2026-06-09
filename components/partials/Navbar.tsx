@@ -20,6 +20,7 @@ const Navbar: React.FC = () => {
     { href: '/home', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/paket-tour', label: 'Paket Tour' },
+    { href: '/mice', label: 'MICE' },
     { href: '/contact', label: 'Contact' },
   ];
 
