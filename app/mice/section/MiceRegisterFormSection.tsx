@@ -15,8 +15,18 @@ export default function MiceRegisterFormSection({ register }: MiceRegisterFormSe
   const [eventType, setEventType] = useState('');
   const [radioError, setRadioError] = useState(false);
   const [fieldErrors, setFieldErrors] = useState<Record<string, boolean>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const clearFieldError = (name: string) => {
+    setFieldErrors((prev) => {
+      if (!prev[name]) return prev;
+      const next = { ...prev };
+      delete next[name];
+      return next;
+    });
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const formData = new FormData(form);
@@ -51,11 +61,35 @@ export default function MiceRegisterFormSection({ register }: MiceRegisterFormSe
       return;
     }
 
-    const ref = `GT-MICE-${Date.now().toString().slice(-6)}`;
-    setRefNumber(ref);
-    setShowModal(true);
-    form.reset();
-    setEventType('');
+    const payload = Object.fromEntries(formData.entries()) as Record<string, string>;
+    payload.event_type = eventType;
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/mice', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Gagal mengirim registrasi.');
+      }
+
+      setRefNumber(result.ref);
+      setShowModal(true);
+      form.reset();
+      setEventType('');
+      setFieldErrors({});
+      setRadioError(false);
+    } catch (error) {
+      alert(error instanceof Error ? error.message : 'Gagal mengirim registrasi. Silakan coba lagi.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputClass = (name: string) =>
@@ -105,7 +139,13 @@ export default function MiceRegisterFormSection({ register }: MiceRegisterFormSe
                   <label className="text-xs font-medium tracking-wide text-mice-text-muted">
                     Nama Perusahaan <span className="text-mice-gold-dark">*</span>
                   </label>
-                  <input type="text" name="company" placeholder="PT. Contoh Indonesia" className={inputClass('company')} />
+                  <input
+                    type="text"
+                    name="company"
+                    placeholder="PT. Contoh Indonesia"
+                    className={inputClass('company')}
+                    onChange={() => clearFieldError('company')}
+                  />
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <label className="text-xs font-medium tracking-wide text-mice-text-muted">Industri / Sektor</label>
@@ -120,7 +160,13 @@ export default function MiceRegisterFormSection({ register }: MiceRegisterFormSe
                   <label className="text-xs font-medium tracking-wide text-mice-text-muted">
                     Nama PIC (Penanggung Jawab) <span className="text-mice-gold-dark">*</span>
                   </label>
-                  <input type="text" name="pic_name" placeholder="Nama lengkap Anda" className={inputClass('pic_name')} />
+                  <input
+                    type="text"
+                    name="pic_name"
+                    placeholder="Nama lengkap Anda"
+                    className={inputClass('pic_name')}
+                    onChange={() => clearFieldError('pic_name')}
+                  />
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <label className="text-xs font-medium tracking-wide text-mice-text-muted">Jabatan / Posisi</label>
@@ -130,13 +176,25 @@ export default function MiceRegisterFormSection({ register }: MiceRegisterFormSe
                   <label className="text-xs font-medium tracking-wide text-mice-text-muted">
                     Email Korporat <span className="text-mice-gold-dark">*</span>
                   </label>
-                  <input type="email" name="email" placeholder="nama@perusahaan.com" className={inputClass('email')} />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="nama@perusahaan.com"
+                    className={inputClass('email')}
+                    onChange={() => clearFieldError('email')}
+                  />
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <label className="text-xs font-medium tracking-wide text-mice-text-muted">
                     No. WhatsApp Aktif <span className="text-mice-gold-dark">*</span>
                   </label>
-                  <input type="tel" name="phone" placeholder="+62 812 xxxx xxxx" className={inputClass('phone')} />
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="+62 812 xxxx xxxx"
+                    className={inputClass('phone')}
+                    onChange={() => clearFieldError('phone')}
+                  />
                 </div>
               </div>
 
@@ -193,7 +251,12 @@ export default function MiceRegisterFormSection({ register }: MiceRegisterFormSe
                   <label className="text-xs font-medium tracking-wide text-mice-text-muted">
                     Estimasi Jumlah Peserta <span className="text-mice-gold-dark">*</span>
                   </label>
-                  <select name="participants" required className={inputClass('participants')}>
+                  <select
+                    name="participants"
+                    required
+                    className={inputClass('participants')}
+                    onChange={() => clearFieldError('participants')}
+                  >
                     <option value="">Jumlah peserta...</option>
                     {register.participantOptions.map((option) => (
                       <option key={option}>{option}</option>
@@ -255,10 +318,11 @@ export default function MiceRegisterFormSection({ register }: MiceRegisterFormSe
 
               <button
                 type="submit"
-                className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-gradient-to-br from-mice-gold to-mice-gold-dark py-4 text-[15px] font-medium tracking-wide text-mice-navy transition hover:-translate-y-px hover:opacity-90 active:translate-y-0"
+                disabled={isSubmitting}
+                className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-gradient-to-br from-mice-gold to-mice-gold-dark py-4 text-[15px] font-medium tracking-wide text-mice-navy transition hover:-translate-y-px hover:opacity-90 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60"
               >
-                <span>{register.submitButtonLabel}</span>
-                <ArrowRight className="h-4 w-4" />
+                <span>{isSubmitting ? 'Mengirim...' : register.submitButtonLabel}</span>
+                {!isSubmitting && <ArrowRight className="h-4 w-4" />}
               </button>
 
               <p className="mt-3 flex items-center justify-center gap-1.5 text-center text-xs text-mice-text-muted">

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { MapPin, Clock, Mail, Phone, User, MessageCircle, Send } from 'lucide-react';
+import { MapPin, Clock, Mail, Phone, User, MessageCircle, Send, Check, XCircle } from 'lucide-react';
 import FeatureCard from '@/components/partials/FeatureCard';
 import { InformationTransformed } from '../core/contact-page.model';
 
@@ -18,6 +18,8 @@ const ContactInformationSection: React.FC<ContactInformationSectionProps> = ({ i
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   // Get the first information item (should be "Contact Information")
   const contactInfoData = information.length > 0 ? information[0] : null;
@@ -47,27 +49,38 @@ const ContactInformationSection: React.FC<ContactInformationSectionProps> = ({ i
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
-      
-      
-      alert('Pesan berhasil dikirim! Tim kami akan segera merespons.');
-      
-      // Reset form
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Gagal mengirim pesan.');
+      }
+
       setFormData({
         name: '',
         email: '',
         subject: '',
-        message: ''
+        message: '',
       });
+      setShowSuccessModal(true);
     } catch (error) {
-      alert('Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.');
+      setErrorMessage(
+        error instanceof Error ? error.message : 'Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.'
+      );
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
+    <>
     <section className="py-24 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 relative overflow-hidden">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -242,6 +255,47 @@ const ContactInformationSection: React.FC<ContactInformationSectionProps> = ({ i
         </div>
       </div>
     </section>
+
+    {showSuccessModal && (
+      <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-blue-900/50 p-4 backdrop-blur-sm">
+        <div className="w-full max-w-md rounded-3xl bg-white p-10 text-center shadow-2xl">
+          <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-blue-50 text-blue-500">
+            <Check className="h-8 w-8" strokeWidth={2.5} />
+          </div>
+          <h3 className="mb-2 text-2xl font-bold text-blue-900">Pesan Terkirim!</h3>
+          <p className="mb-6 text-sm leading-relaxed text-gray-600">
+            Pesan berhasil dikirim! Tim kami akan segera merespons.
+          </p>
+          <button
+            type="button"
+            onClick={() => setShowSuccessModal(false)}
+            className="rounded-2xl bg-blue-500 px-8 py-3 text-sm font-semibold text-white transition hover:bg-blue-600"
+          >
+            Tutup
+          </button>
+        </div>
+      </div>
+    )}
+
+    {errorMessage && (
+      <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-blue-900/50 p-4 backdrop-blur-sm">
+        <div className="w-full max-w-md rounded-3xl bg-white p-10 text-center shadow-2xl">
+          <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-red-50 text-red-500">
+            <XCircle className="h-8 w-8" strokeWidth={2.5} />
+          </div>
+          <h3 className="mb-2 text-2xl font-bold text-blue-900">Gagal Mengirim</h3>
+          <p className="mb-6 text-sm leading-relaxed text-gray-600">{errorMessage}</p>
+          <button
+            type="button"
+            onClick={() => setErrorMessage(null)}
+            className="rounded-2xl bg-blue-500 px-8 py-3 text-sm font-semibold text-white transition hover:bg-blue-600"
+          >
+            Tutup
+          </button>
+        </div>
+      </div>
+    )}
+    </>
   );
 };
 
